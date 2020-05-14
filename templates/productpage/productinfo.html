@@ -84,8 +84,6 @@
                 </div>
               </div>
             </div>
-
-
             <div id="ownerControls " class="container" style="padding-top:10px">
               <button id="abort" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
                 Видалити
@@ -93,7 +91,6 @@
               <button id="final" class="btn btn-success">Final</button>
               
             </div>
-
             
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -298,6 +295,7 @@
                 //function to change owner from url to name
                 function refresh()
                 {
+                
                         for(var x in users)
                         {
                             if(users[x].url.includes(data[0].owner))
@@ -305,10 +303,13 @@
                                 data[0].owner = users[x].username
                             }
                         } 
+                
+                    
                 }
                 //Append products to html
                 function printResult()
                 {
+
                     console.log(currentUser,data[0].owner);
                     if(currentUser==data[0].owner)
                     {
@@ -320,34 +321,50 @@
                     
                         for(var key in data)
                         {
-                            $("#contents").append('<h1><b>'+data[key].itemname+'</b></h1> <div>Опис: '+data[key].description+'</div><div>Початкова ставка:'+data[key].initialbid+'</div><div>Дата початку: '+data[key].createddate+'</div><div><h2>Теперішня ставка: '+data[key].bid+'</h2></div>');
+                          if(data[key].bid != 0){
+                              $("#contents").append('<h1><b>'+data[key].itemname+'</b></h1> <div>Опис: '+data[key].description+'</div><div>Початкова ставка:'+data[key].initialbid+'</div><div>Дата початку: '+data[key].createddate+'</div><div><h2>Теперішня ставка: '+data[key].bid+'</h2></div>');
+
+                              $('#imageblock').append('<img class="img-fluid justify-content-center" src="'+data[0].image+'">');
+                          }
+                          else{
+                            $("#contents").append('<h1><b>'+data[key].itemname+'</b></h1> <div>Опис: '+data[key].description+'</div><div>Початкова ставка:'+data[key].initialbid+'</div><div>Дата початку: '+data[key].createddate+'</div>');
+
                             $('#imageblock').append('<img class="img-fluid justify-content-center" src="'+data[0].image+'">');
+                          }  
                         }
                     }
-
                     else
                     {
                         $('#contents').html('');
                         $('#imageblock').html('');
-                        $('#final').hide();
-                        $('#abort').hide();
+                     
                         console.log(data[0].owner);
                         console.log("Second loop");
                         
                         for(var key in data)
                         {
-                            
-                            $("#contents").append('<h1><b>'+data[key].itemname+'</b></h1> <div>Опис: '+data[key].description+'</div><div>Початкова ставка: '+data[key].initialbid+'</div><div> Дата створення: '+data[key].createddate+'</div><div><h2>Поточна ставка: '+data[key].bid+'</h2></div>');
+
+                            if(data[key].bid != 0){
+                              $("#contents").append('<h1><b>'+data[key].itemname+'</b></h1> <div>Опис: '+data[key].description+'</div><div>Початкова ставка: '+data[key].initialbid+'</div><div> Дата створення: '+data[key].createddate+'</div><div><h2>Теперішня ставка: '+data[key].bid+'</h2></div>');
+
+                              $('#imageblock').append('<img class="img-fluid img justify-content-center" src="'+data[0].image+'">');
+                            }
+                            else {
+                            $("#contents").append('<h1><b>'+data[key].itemname+'</b></h1> <div>Опис: '+data[key].description+'</div><div>Початкова ставка: '+data[key].initialbid+'</div><div> Дата створення: '+data[key].createddate+'</div>');
 
                             $('#imageblock').append('<img class="img-fluid img justify-content-center" src="'+data[0].image+'">');
+                            }
                         }
+                        
+                        $('#final').hide();
+                        $('#abort').hide();
                     }
                 }
 
                 $('#bid').click(function(){
                         getproductinfo();
                         bidToProduct();
-                        getproductinfo();
+                        // getproductinfo();
 
 
                 });
@@ -398,10 +415,7 @@
                 }
             
                 getproductinfo();
-
-                setInterval(getproductinfo, 3000);
-                
-
+              
             });
 
           </script>
