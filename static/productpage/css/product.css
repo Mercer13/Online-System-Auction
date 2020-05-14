@@ -1,0 +1,103 @@
+.dark-light-blue {
+    height: 60px;
+    color:white;
+    background-image: -moz-linear-gradient(-30deg, #00004d 0%, #5333ed 49%, #2cd4d9 100%);
+    background-image: -webkit-linear-gradient(-30deg, #00004d 0%, #5333ed 49%, #2cd4d9 100%);
+    font-family: 'Lobster', cursive;   
+
+}
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:white;
+    overflow-x: hidden;
+    padding-top: 150px;
+    border:1px;
+    border-color: #180F7B;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #180F7B;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+footer {
+  padding: 30px 0;
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+  
+  .sidebar-offcanvas {
+    position: absolute;
+    width: 60%; /* 6 columns */
+    display: none;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-right.active
+  .sidebar-offcanvas {
+    display: block;  
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+
+
+}
+/* Product.html */
+.content{
+  padding-top:10px;
+ /* background-color: #3C25C0;
+  color:white;
+ */ margin-top:40px;
+  
+}
+
+
+.content-info{
+  font-family: 'Roboto';
+  padding-top:10px;
+}
+
+.curvesss{
+  padding-left: 5000px;
+}

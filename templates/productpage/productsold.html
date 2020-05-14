@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+
+<head>
+  <title>Product page</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'productpage/css/product.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+        <a href="{% url 'product' %} ">
+            <svg 
+                width="45" height="45" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="200px" y="200px"
+                viewBox="0 0 460 460" style="enable-background:new 0 0 460 460;" xml:space="preserve">
+                <g>
+                <path style="fill:#366796;" d="M230,0C102.974,0,0,102.974,0,230c0,100.254,64.144,185.527,153.63,217.017L459.991,227.94
+                    C458.885,101.863,356.338,0,230,0z"/>
+                <path style="fill:#273B7A;" d="M459.974,227.94l-42.828-42.828l-24.126,5.874l-4.158-34.158L281.165,49.13l-33.913,5.635
+                    l-8.323,122.986L87.789,381.154L153.635,447c23.896,8.409,49.593,13,76.365,13c127.025,0,230-102.975,230-230
+                    C460,229.311,459.98,228.627,459.974,227.94z"/>
+                    <rect x="119.242" y="208.667" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 24.564 613.0203)" style="fill:#FEE187;" width="40.001" height="185.511"/>
+                    <rect x="181.896" y="208.761" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 199.9722 540.3522)" style="fill:#FF6161;" width="60" height="40"/>
+                <polygon style="fill:#FF6161;" points="391.693,182.29 292.698,281.285 264.414,253.001 299.769,189.362 363.409,154.006 	"/>
+                <polygon style="fill:#FFAD9E;" points="283.994,74.591 248.639,138.231 184.999,173.586 156.715,145.302 255.71,46.307 	"/>
+                <polygon style="fill:#FEE187;" points="363.409,154.006 264.414,253.001 224.71,213.297 252.994,142.586 323.705,114.302 	"/>
+                    <rect x="184.35" y="115.865" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 535.9856 65.8771)" style="fill:#FFFFFF;" width="139.999" height="56.159"/>
+                    <rect x="322.196" y="145.781" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 420.2706 637.6421)" style="fill:#FF0F27;" width="40" height="171.998"/>
+                    <rect x="186.21" y="9.798" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 284.2834 309.3492)" style="fill:#FF6161;" width="40" height="171.998"/>
+                <path style="fill:#FF6161;" d="M370.023,356.737v15.367h-94.5l20-45.367h44.5C356.523,326.737,370.023,340.237,370.023,356.737z"/>
+                <path style="fill:#FFAD9E;" d="M295.523,326.737v45.367h-74.5v-15.367c0-16.5,13.5-30,30-30H295.523z"/>
+                <polygon style="fill:#FF0F27;" points="377.023,355.787 377.023,381.154 295.523,381.154 275.523,371.154 295.523,355.787 	"/>
+                <rect x="214.023" y="355.787" style="fill:#FF6161;" width="81.5" height="25.367"/>
+            </g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+            </svg></a>   
+        
+        <a class="navbar-brand text-center" href="{% url 'product' %} ">&nbsp; Онлайн система аукціон </a>
+    
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ставки
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'product_bought' %}" >Куплено</a>
+                        <a class="dropdown-item active" href="#" >Продано</a>
+                        <a class="dropdown-item" href="{% url 'my_product' %}" >Мої ставки</a>
+                        <a class="dropdown-item" href="{% url 'upload_product' %}" >Додати ставку</a>
+                    </div>
+                </li>    
+            </ul>
+        </div>   
+        <div> Ласкаво просимо, {{ user.username }}   <a class="btn btn-outline-danger" href="{% url 'logout' %}">Вийти</a></div> 
+    </nav>   
+
+    <div class="container">
+        {% if user.is_authenticated %}
+        <div class="container-fluid" style="padding:30px">
+            <div class="row row-offcanvas row-offcanvas-right">
+                <div class="col-xs-12 col-sm-9 col-sm-push-3">
+                    <div class="jumbotron">
+                        <h1>Sold Products</h1>
+                        <p>These are your current product in ongoing auction.</p>
+                    </div>
+                    <div  class="row border border-success rounded" id="products-list">
+                        <div  class="col-sm-4">
+                            <div class="container" id="imageblock"></div>
+                        </div>
+                        <div  class="col-sm-8">
+                            <div class="container content-info" id="contents"></div>
+                        </div>
+                    </div><!--/row-->
+                </div><!--/.col-xs-12.col-sm-9-->
+            </div><!--/row-->
+            <hr>
+            {% else %}
+            <p>You are not logged in</p>
+            <a class ="btn btn-success" href="{% url 'login' %}">login</a>
+            {% endif %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>           
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            var data,ownerName;
+            var users,currentUser;
+            //get all user information 
+            currentUser = {{ user.id }}
+            $.ajax({url: "/product/rest/users/?format=json", success: function(result){
+                users= result;
+                console.log(result);
+            },complete:function()
+            {
+                //do nothing 
+            },
+            });
+                
+            //get products  
+            function getproductinfo()
+            {
+                $.ajax({url: "/product/rest/products/?id=&itemname=&owner="+currentUser+"&status=1&buyer=", success: function(result){
+                    data= result;
+                    console.log(result);
+                    $('#users').html('');
+                    
+                },complete:function()
+                {
+                    refresh();
+                    printResult();
+                    if(data.length==0)
+                    {
+                        $("#contents").html("")
+                        $("#contents").append('There are currently no product sold');
+                    }
+                },
+                });
+            }
+
+
+            //function to change owner from url to name
+            function refresh()
+            {
+            for(var key in data)
+            {
+                    for(var x in users)
+                    {
+                        if(data[key].owner == users[x].url)
+                        {
+                            data[key].owner = users[x].username
+                        }
+                    } 
+            }
+                
+            }
+            //Append products to html
+            function printResult()
+            {
+
+                $('#contents').html('');
+                $('#imageblock').html('');
+                
+                for(var key in data)
+                {
+                    
+
+                    $("#contents").append('Item Name:'+data[key].itemname+'<div>Опис:'+data[key].description+'</div><div>Початкова ставка :'+data[key].initialbid+'</div><div>'+data[key].createddate+'</div><div>Buyer:'+data[key].buyer+'</div><div>Кінцева ставка: '+data[key].bid+'</div>');
+
+            $('#imageblock').append('<img class="img-fluid justify-content-center" style="padding:50px" src="'+data[key].image+'">');
+                }
+            }
+                    getproductinfo();
+                    setInterval(getproductinfo, 5000);
+
+        </script>
+    </body>        
+</html>
