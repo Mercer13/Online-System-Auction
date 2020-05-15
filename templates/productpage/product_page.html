@@ -41,24 +41,25 @@
     </g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
     </svg></a>
     
-    <a class="navbar-brand text-center" href="{% url 'product' %} ">&nbsp; Онлайн система аукціон </a>
+    <a class="navbar-brand text-center mb-0 h1 " href="{% url 'product' %} ">&nbsp; Онлайн система аукціон </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
+    {% if user.is_authenticated %}
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Лоти
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{% url 'product_bought' %}" >Куплено</a>
-                    <a class="dropdown-item" href="{% url 'products_sold' %}" >Продано</a>
-                    <a class="dropdown-item" href="{% url 'my_product' %}" >Мої ставки</a>
-                    <a class="dropdown-item" href="{% url 'upload_product' %}" >Додати ставку</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'product_bought' %}" >Куплено</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'products_sold' %}" >Продано</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'my_product' %}" >Мої товари</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'upload_product' %}" >Додати товар</a>
             </li>    
         </ul>
     </div>   
@@ -66,7 +67,7 @@
   </nav>
 
   <div class="container">
-    {% if user.is_authenticated %}
+    
     <div class="container-fluid" style="padding:30px">
         
       <div class="row row-offcanvas row-offcanvas-right">
@@ -78,94 +79,99 @@
         </div><!--/.col-xs-12.col-sm-9-->
       </div><!--/row-->
       <hr>
-      {% else %}
-      <p>You are not logged in</p>
-      <a class ="btn btn-success" href="{% url 'login' %}">login</a>
+      {% else %} 
+    </div>
+      <div ></div>
+        <a class ="success" href="{% url 'login' %}">login</a>
+        <a href="{% url 'signup' %}" class="primary "> Sign up </a>
+      </div>
+    </nav>
+        <div class="alert alert-primary" role="alert" align="center">
+            Авторизуйтесь, будь ласка!
+        </div>
       {% endif %}
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
      <script>
+        $(document).ready(function(){
+        var data,ownerName;
+        var users,currentUser;
+        //get all user information 
+        function getusers()
+        {
+        $.ajax({url: "rest/users/?format=json", success: function(result){
+            users= result;
+            console.log(result);
+            
+            
 
-$(document).ready(function(){
-var data,ownerName;
-var users,currentUser;
-//get all user information 
-function getusers()
-{
-$.ajax({url: "rest/users/?format=json", success: function(result){
-    users= result;
-    console.log(result);
-    
-    
-
- },complete:function()
- {
-    //do nothing 
- },
- 
- });
-} 
-    
-   
-//get products  
-function getproductinfo()
-{
-    $.ajax({url: "/product/rest/products/?id=&itemname=&owner=&status=0&buyer=", success: function(result){
-        data= result;
-        console.log(result);
-        $('#users').html('');
+        },complete:function()
+        {
+            //do nothing 
+        },
         
-
-    },complete:function()
-    {
-        refresh();
-        printResult();
-        if(data.length==0)
-        {
-            $("#products-list").html("")
-            $("#products-list").append('<h1>There are currently no products</h1>');
-        }
-    },
-    
-    });
-
-}
-
-//function to change owner from url to name
-function refresh()
-{
-   for(var key in data)
-   {
-        for(var x in users)
-        {
-            if(data[key].owner == users[x].url)
-            {
-                data[key].owner = users[x].username
-            }
+        });
         } 
-   }
-    
-}
-// Append products to html
-function printResult()
-{
+            
+        
+        //get products  
+        function getproductinfo()
+        {
+            $.ajax({url: "/product/rest/products/?id=&itemname=&owner=&status=0&buyer=", success: function(result){
+                data= result;
+                console.log(result);
+                $('#users').html('');
+                
 
-    $('#product').html('');
-    for(var key in data)
-    {
-          
+            },complete:function()
+            {
+                refresh();
+                printResult();
+                if(data.length==0)
+                {
+                    $("#products-list").html("")
+                    $("#products-list").append('<h1>There are currently no products</h1>');
+                }
+            },
+            
+            });
 
-          $("#products-list").append('<div style="padding: 20px"><div class="card" style="height: 400px; width: 18rem; padding: -50px"><img class="card-img-top " style="width: 100%; height: 60%; object-fit:cover" src="'+data[key].image+'" alt="Card image"><div class="card-body"><h5 class="card-title">'+data[key].itemname +'</h5><p class="card-text">'+data[key].description +'</p><a href ="'+data[key].id+'/'+'" class="btn btn-primary">Відкрити</a></div></div></div>');
+        }
+
+        //function to change owner from url to name
+        function refresh()
+        {
+        for(var key in data)
+        {
+                for(var x in users)
+                {
+                    if(data[key].owner == users[x].url)
+                    {
+                        data[key].owner = users[x].username
+                    }
+                } 
+        }
+            
+        }
+        // Append products to html
+        function printResult()
+        {
+
+            $('#product').html('');
+            for(var key in data)
+            {
+                
+
+                $("#products-list").append('<div style="padding: 20px"><div class="card" style="height: 400px; width: 18rem; padding: -50px"><img class="card-img-top " style="width: 100%; height: 60%; object-fit:cover" src="'+data[key].image+'" alt="Card image"><div class="card-body"><h5 class="card-title">'+data[key].itemname +'</h5><p class="card-text">'+data[key].description +'</p><a href ="'+data[key].id+'/'+'" class="btn btn-primary">Відкрити</a></div></div></div>');
 
 
 
-    }
-}
-    getusers();
-    getproductinfo();
-    // setInterval(getproductinfo, 5000);
-    // setInterval(getusers,15000);
-});
-
+            }
+        }
+            getusers();
+            getproductinfo();
+            // setInterval(getproductinfo, 5000);
+            // setInterval(getusers,15000);
+        });
      </script>
     </div>
   </div>

@@ -41,7 +41,7 @@
             </g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
             </svg></a>   
         
-        <a class="navbar-brand text-center" href="{% url 'product' %} ">&nbsp; Онлайн система аукціон </a>
+        <a class="navbar-brand text-center mb-0 h1 " href="{% url 'product' %} ">&nbsp; Онлайн система аукціон </a>
     
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,19 +49,20 @@
     
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Ставки
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'product_bought' %}" >Куплено</a>
-                        <a class="dropdown-item active" href="#" >Продано</a>
-                        <a class="dropdown-item" href="{% url 'my_product' %}" >Мої ставки</a>
-                        <a class="dropdown-item" href="{% url 'upload_product' %}" >Додати ставку</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'product_bought' %}" >Куплено</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'products_sold' %}" >Продано</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'my_product' %}" >Мої товари</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'upload_product' %}" >Додати товар</a>
                 </li>    
             </ul>
-        </div>   
+        </div>    
         <div> Ласкаво просимо, {{ user.username }}   <a class="btn btn-outline-danger" href="{% url 'logout' %}">Вийти</a></div> 
     </nav>   
 
