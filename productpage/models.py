@@ -16,7 +16,7 @@ def user_directory_path(instance, filename):
 class Product(models.Model):
     itemname=models.CharField(verbose_name="Назва товару: ", null=False,max_length=200)
     description=models.CharField(verbose_name="Опис: ", null=False,max_length=200)
-    image = models.ImageField(verbose_name="Зображення: ", upload_to=user_directory_path,default="bg3.jpg")
+    image = models.ImageField(verbose_name="Зображення: ", upload_to=user_directory_path, default="bg3.jpg")
     initialbid=models.IntegerField(verbose_name="Початкова ставка: ", null=False)
     createddate=models.DateTimeField(auto_now_add=True)
     
