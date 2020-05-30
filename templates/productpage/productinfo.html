@@ -1,399 +1,223 @@
 <!DOCTYPE html>
-<html>
-<meta charset="UTF-8">  
+<html lang="en">
+
 {% load static %}
+
 <head>
-    <title>Product page</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'productpage/css/product.css' %}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-</head>         
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initital-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Product page</title>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/product_info.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/scroll.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/navigation.css' %}">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
 <body>
-        
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" >     
-    <a href="{% url 'product' %} ">
-      <object type="image/svg+xml" data="  {% static 'auction-svgrepo-com.svg' %}" width="45" height="45" >
-          Your browser does not support SVG
-      </object>
-  </a> 
+  <div class="wrapper">
+    <!-- Хедер -->
 
-<a class="navbar-brand text-center mb-0 h1 " href="{% url 'product' %} ">&nbsp; Онлайн система аукціон </a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
+    <header class="header">
+      <div class="header-overlay">
+        <div class="nav-container">
+          <div class="logotip">
+            <a href="{% url 'product' %}"> <img src=" {% static 'img/logotip.svg' %}" alt="logo" width="280"
+                height="60"></a>
+          </div>
+          <!-- Навігація -->
+          <div class="nav-wrapper">
+            <div>
+              <div id="menu-togle" class="menu-icon">
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-  <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'product_bought' %}" >Куплено</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'products_sold' %}" >Продано</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'my_product' %}" >Мої товари</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'upload_product' %}" >Додати товар</a>
-      </li>    
-  </ul>
-</div>    
-<div> Ласкаво просимо, {{ user.username }}   <a class="btn btn-outline-danger" href="{% url 'logout' %}">Вийти</a></div> 
-</nav>
+                <div class="menu-icon-line">
+                  <div style="margin-top: -40px; font-size: 12px; color: #112c5a; margin-left: -2px;">МЕНЮ</div>
+                </div>
 
+              </div>
+
+            </div>
+            <!-- Навігація для моб. пристрою -->
+            <div id="mobile-nav" class="mobile-nav">
+              <div class="welcome">Ласкаво просимо, &emsp;&emsp; {{ user.username }}</div>
+              <div class="mobile-nav__title">Меню</div>
+
+              <ul class="mobile-nav__list">
+                <li class="mobile-nav__item"><a href="{% url 'product_bought' %}" class="mobile-nav__link"><i
+                      class="fas fa-shopping-basket"></i> Куплено</a></li>
+                <li class="mobile-nav__item"><a href="{% url 'products_sold' %}" class="mobile-nav__link"><i
+                      class="fas fa-money-bill-wave"></i> Продано</a></li>
+                <li class="mobile-nav__item"><a href="{% url 'my_product' %}" class="mobile-nav__link"><i
+                      class="fas fa-user"></i> Мої товари</a></li>
+                <li class="mobile-nav__item"><a href="{% url 'upload_product' %}" class="mobile-nav__link"><i
+                      class="fas fa-cart-plus"></i> Додати товар</a></li>
+              </ul>
+              <div class="exit">
+                <a title="Вийди звідси розбійник!" class="exit1" href="{% url 'logout' %}"><i
+                    class="fas fa-sign-out-alt"></i> Вийти</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ...Хедер -->
+    <div class="caption" >Сторінка товару</div>
     <div class="container-fluid content">
       <div class="row border">
+
         <div class="col-sm-6 colbig">
           <div class="container" id="imageblock"></div>
         </div>
 
         <div class="col-sm-6  colbig">
+
           <div class="container content-info" id="contents"></div>
-            <div id="buyerControls " class="container" style="padding-top:10px">
-              <div class="row">
-                <div class="col-sm-6">
-                   <form>
-                      {% csrf_token %}                       
-                      <input  id ="bidInput" type="text" class="form-control form-control">
-                   </form>
+
+          <div id="buyerControls " class="container" style="padding-top:10px">
+            <div class="row">
+              <div class="col-sm-6">
+                <form>
+                  {% csrf_token %}
+                  <input id="bidInput" type="text" class="form-control form-control">
+                </form>
+              </div>
+
+              <div>
+              
+                <button id="bid" class="baton"> Поставити </button>
+              </div>
+
+            </div>
+          </div>
+
+          <div id="ownerControls " class="container" style="padding-top:10px">
+            <button style="width: 200px" id="abort" class="baton" data-toggle="modal"
+              data-target="#ModalDelete">Видалити</button>
+
+            <button style="width: 200px" id="final" class="baton" data-toggle="modal"
+              data-target="#ModalFinal">Продати!</button>
+
+          </div>
+
+          <!-- Modal Delete -->
+          <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Видалення</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-                <div class="col-sm-6">
-                  <button id="bid" class="btn btn-primary">Bid</button>
+                <div class="modal-body">
+                  <p>Ви впевнені, що хочете видалити даний товар?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-outline-danger" OnClick='deleteproduct()' ;>Delete</button>
                 </div>
               </div>
             </div>
+          </div>
+          <!-- ...Modal Delete -->
 
-            <div id="ownerControls " class="container" style="padding-top:10px">
-              <button style="width: 200px" id="abort" class="btn btn-danger" data-toggle="modal" data-target="#ModalDelete">Видалити</button>
-              <button style="width: 200px" id="final" class="btn btn-success" data-toggle="modal" data-target="#ModalFinal">Final</button>
-            </div>
+          <!-- Modal Final -->
+          <div class="modal fade" id="ModalFinal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Продаж товару</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Ви впевнені, що хочете продати товар?</p>
 
-            <!-- Modal Delete -->
-            <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Видалення</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Ви впевнені, що хочете видалити даний товар?</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-outline-danger" OnClick='deleteproduct()';>Delete</button>
-                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Відміна</button>
+                  <button type="button" class="btn btn-outline-success" OnClick='finalproduction()' ;>Продати</button>
                 </div>
               </div>
             </div>
-
-            <!-- Modal Final -->
-            <div class="modal fade" id="ModalFinal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Продаж товару</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Ви впевнені, що хочете продати товар?</p>
-                    
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Відміна</button>
-                    <button type="button" class="btn btn-outline-success" OnClick='finalproduction()';>Продати</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+          </div>
+          <!-- ...Modal Final -->
 
         </div>
       </div>
-  
+
     </div>
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-          <script>
-            
-            var users,currentUser,csrf_token;
-            {% if user.is_authenticated %}
-
-            currentUser = "{{user.username}}";
-            {% endif %}
-            console.log(currentUser);
-            var id={{ id }};
-            
-            csrfToken = "{{ csrf_token }}";
-            console.log("csrf token"+csrfToken);
-
-          </script>
-
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-            
-          <script>
-            
-                var data;
-              
-                //get all user information 
-                $.ajax({url: "/product/rest/users/?format=json", success: function(result){
-                    users= result;
-                    console.log(result);
-                    
-
-                },complete:function()
-                {
-                    //do nothing 
-                },
-                
-                });
-                    
-
-                //get products  
-                console.log(id)
-                
-                $("#load").click(function(){
-                    getproductinfo();
-                }); 
-                var finalmodal = 0;
     
-                function finalproduction()
-                        {
-                              if(data[0].bid != 0 )
-                              {
-                                finalproduct()
-                              }
-                              else
-                              {
-                                
-                                alert("Помилка! Ви не можете продати товар!\nСтавки на даний товар відсутні...");
-                              }
-                        }
 
-                        function finalproduct()
-                            {
-                                //patch ajax call
-                                var x={
-                                    "status":1,
-                                }
-                                
-                                var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value')
-                                $.ajax({
-                                type : "PATCH",
-                                url : "/product/rest/products/"+id+"/",
-                                csrfmiddlewaretoken: csrfToken,
-                                data : JSON.stringify(x),
-                                dataType: "json",
-                                headers: {
-                                'Accept': 'application/json',
-                                'Content-Type': 'application/json',
-                                "X-CSRFToken": $crf_token,
-                                //content-type = application/x-www-form-urlencoded
-                                },
-                                success: function(){
-                                    window.location.replace("/product/");
-                                
-                                },
-                                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                                alert("some error " + String(errorThrown) + String(textStatus) + String(XMLHttpRequest.responseText));
-                                }
-                                });
-                            }
+    <div class="push"></div>
+  </div>
+<!-- Футер -->
+  <footer>
+    <div class="footer-container">
+      <div class="left-col">
+        <img src="logo.png" alt="" class="logo">
+        <div class="social-media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="rights-text">© 2020
+          Online System Auction</p>
+      </div>
 
-                        function deleteproduct()
-                        {
-                            var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value')
-                                $.ajax({
-                                type : "DELETE",
-                                url : "/product/rest/products/"+id+"/",
-                                csrfmiddlewaretoken: csrfToken,
-                                //data : JSON.stringify(x),
-                                //dataType: "json",
-                                headers: {
-                                'Accept': 'application/json',
-                                'Content-Type': 'application/json',
-                                "X-CSRFToken": $crf_token,
-                                //content-type = application/x-www-form-urlencoded
-                                },
-                                success: function(){
-                                    window.location.replace("/product/");
-                                
-                                },
-                                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                                alert("some error " + String(errorThrown) + String(textStatus) + String(XMLHttpRequest.responseText));
-                                }
-                                });
-                        }
+      <div class="right-col">
+        <a href="#"> <img src=" {% static 'img/OnlineAuction.svg' %}" alt="logo" width="320" height="200"></a>
+      </div>
+    </div>
+  </footer>
 
-                
+  <!-- ... Футер -->
+  <script>
 
-                //function to change owner from url to name
-                function refresh()
-                {
-                        for(var x in users)
-                        {
-                            if(users[x].url.includes(data[0].owner))
-                            {
-                                data[0].owner = users[x].username
-                            }
-                        } 
-                  
-                    
-                }
+    var users, currentUser, csrf_token;
+    {% if user.is_authenticated %}
 
-                //Append products to html
-                function printResult()
-                {
+    currentUser = "{{user.username}}";
+    {% endif %}
+    console.log(currentUser);
+    var id = {{ id }};
 
-                    console.log(currentUser,data[0].owner);
-                    if(currentUser==data[0].owner)
-                    {   
-                        $("#bidInput").hide();
-                        $("#bid").hide();
-                        $('#contents').html('');
-                        $('#imageblock').html('');
-                        console.log(data[0].owner);
-                        console.log("button BID, INPUTE hide");
-                      
-                        for(var key in data)
-                        {
-                            if(data[key].bid != 0){
-                                $("#contents").append('<h1><b>'+data[key].itemname+'</b></h1> <div>Опис: '+data[key].description+'</div><div>Початкова ставка:'+data[key].initialbid+'</div><div>Дата початку: '+data[key].createddate+'</div><div><h2>Теперішня ставка: '+data[key].bid+'</h2></div>');
+    csrfToken = "{{ csrf_token }}";
+    console.log("csrf token" + csrfToken);
 
-                                $('#imageblock').append('<img class="img-fluid justify-content-center" src="'+data[0].image+'">');
-                            }
-                            else{
-                              $("#contents").append('<h1><b>'+data[key].itemname+'</b></h1> <div>Опис: '+data[key].description+'</div><div>Початкова ставка:'+data[key].initialbid+'</div><div>Дата початку: '+data[key].createddate+'</div>');
+  </script>
 
-                              $('#imageblock').append('<img class="img-fluid justify-content-center" src="'+data[0].image+'">');
-                            }  
-                            
-                        }
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="{% static 'js/product_info.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
 
-                        
-                    }
-                    else
-                    {
+</body>
 
-                        $('#contents').html('');
-                        $('#imageblock').html('');
-                        $('#final').hide();
-                        $('#abort').hide();
-                        console.log(data[0].owner);
-                        console.log("button ABORT, FINAL hide");
-                        for(var key in data)
-                        {
-                            
-                            if(data[key].bid != 0){
-                                $("#contents").append('<h1><b>'+data[key].itemname+'</b></h1> <div>Опис: '+data[key].description+'</div><div>Початкова ставка: '+data[key].initialbid+'</div><div> Дата створення: '+data[key].createddate+'</div><div><h2>Теперішня ставка: '+data[key].bid+'</h2></div>');
-
-                                $('#imageblock').append('<img class="img-fluid img justify-content-center" src="'+data[0].image+'">');
-                              }
-                              else {
-                              $("#contents").append('<h1><b>'+data[key].itemname+'</b></h1> <div>Опис: '+data[key].description+'</div><div>Початкова ставка: '+data[key].initialbid+'</div><div> Дата створення: '+data[key].createddate+'</div>');
-
-                              $('#imageblock').append('<img class="img-fluid img justify-content-center" src="'+data[0].image+'">');
-                              }
-                        }
-
-                    }
-                }
-
-                
-
-                function getproductinfo()
-                {
-                    $.ajax({url: "/product/rest/products/?id="+id+"&itemname=&owner=&status=&buyer=", success: function(result){
-                        data=result;
-                        console.log(result + "pisya");
-                        
-                        
-
-                    },complete:function()
-                    {
-                        
-                        refresh();
-                        if(data[0].length==0)
-                        {
-                        window.location.replace("/product/");
-                        
-                        }
-                        else if(data[0].status==1)
-                        {
-                        window.location.replace("/product/");
-                        
-                        }
-                        printResult();
-                      
-                    },
-                    
-                    });
-                }
-                
-                function bidToProduct()
-                {
-                    
-                    var bid = $('#bidInput').val()
-                    console.log(bid);
-                    if(bid<data[0].initialbid)
-                    {
-                        alert("value of bid must be greater than initial bid");
-                    }
-                    else if(bid<data[0].bid)
-                    {
-                        alert("value of your bid must be greater than current bid");
-                    }
-                    else{
-                        //patch ajax call
-                        var x={
-                            "bid":bid,
-                            "buyer":currentUser,
-                            "status":0,
-                        }
-                        
-                        var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value')
-                        $.ajax({
-                        type : "PATCH",
-                        url : "/product/rest/products/"+id+"/",
-                        csrfmiddlewaretoken: csrfToken,
-                        data : JSON.stringify(x),
-                        dataType: "json",
-                        headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                        "X-CSRFToken": $crf_token,
-                        //content-type = application/x-www-form-urlencoded
-                        },
-                        success: function(){
-                        
-                        
-                        },
-                        error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        alert("some error " + String(errorThrown) + String(textStatus) + String(XMLHttpRequest.responseText));
-                        }
-                        });
-                    }
-                }
-              
-                $('#bid').click(function(){
-                        getproductinfo();
-                        bidToProduct();
-                        getproductinfo();
-
-                });
-                
-                
-                setInterval(getproductinfo, 100);
-                
-            
-
-          </script>
-          
-</body> 
 </html>

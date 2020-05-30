@@ -1,130 +1,178 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8"> 
+<meta charset="UTF-8">
 {% load static %}
+
 <head>
-  <title>Product page</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'productpage/css/product.css' %}">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initital-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Online auction</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/my_product.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/scroll.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/navigation.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+  <div class="wrapper">
+    <header class="header">
+      <div class="header-overlay">
+        <div class="nav-container">
+          <div class="logotip">
+            <a href="{% url 'product' %}"> <img src=" {% static 'img/logotip.svg' %}" alt="logo" width="280"
+                height="60"></a>
+          </div>
 
-        <a href="{% url 'product' %} ">
-            <object type="image/svg+xml" data="  {% static 'auction-svgrepo-com.svg' %}" width="45" height="45" >
-                Your browser does not support SVG
-            </object>
-        </a>    
-        
-        <a class="navbar-brand text-center mb-0 h1 " href="{% url 'product' %} ">&nbsp; Онлайн система аукціон </a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+          <!-- Навігація -->
+          <div class="nav-wrapper">
+            <div>
+              <div id="menu-togle" class="menu-icon">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'product_bought' %}" >Куплено</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'products_sold' %}" >Продано</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="" >Мої товари</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'upload_product' %}" >Додати товар</a>
-                </li>    
-            </ul>
-        </div>     
+                <div class="menu-icon-line">
+                  <div style="margin-top: -40px; font-size: 12px; color: #112c5a; margin-left: -2px;">МЕНЮ</div>
+                </div>
 
-        <div> Ласкаво просимо, {{ user.username }}   <a class="btn btn-outline-danger" href="{% url 'logout' %}">Вийти</a></div> 
-    </nav>
+              </div>
 
-    <div class="container">
-        {% if user.is_authenticated %}
-        <div class="container-fluid" style="padding:30px">
-            <div class="row row-offcanvas row-offcanvas-right">
-                <div class="col-xs-12 col-sm-9 col-sm-push-3">
-                    <div class="jumbotron">
-                      <h1>Current Products</h1>
-                      <p>These are your current product in ongoing auction.</p>
-                    </div>
-                    <div class="row" id="products-list"></div><!--/row-->
-                </div><!--/.col-xs-12.col-sm-9-->
-            </div><!--/row-->
+            </div>
+            <!-- Навігація для моб. пристрою -->
+            <div id="mobile-nav" class="mobile-nav">
+              <div class="welcome">Ласкаво просимо, &emsp;&emsp; {{ user.username }}</div>
+              <div class="mobile-nav__title">Меню</div>
 
-            <hr>
-            {% else %}
-            <p>You are not logged in</p>
-            <a class ="btn btn-success" href="{% url 'login' %}">login</a>
-            {% endif %}
-
+              <ul class="mobile-nav__list">
+                <li class="mobile-nav__item"><a href="{% url 'product_bought' %}" class="mobile-nav__link"><i
+                      class="fas fa-shopping-basket"></i> Куплено</a></li>
+                <li class="mobile-nav__item"><a href="{% url 'products_sold' %}" class="mobile-nav__link"><i
+                      class="fas fa-money-bill-wave"></i> Продано</a></li>
+                <li class="mobile-nav__item"><a style="color: #707070" href="#" class="mobile-nav__link"><i
+                      class="fas fa-user"></i> Мої товари</a></li>
+                <li class="mobile-nav__item"><a href="{% url 'upload_product' %}" class="mobile-nav__link"><i
+                      class="fas fa-cart-plus"></i> Додати товар</a></li>
+              </ul>
+              <div class="exit">
+                <a title="Вийди звідси розбійник!" class="exit1" href="{% url 'logout' %}"><i
+                    class="fas fa-sign-out-alt"></i> Вийти</a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </header>
+
+
+    {% if user.is_authenticated %}
+    <div class="caption">Мої товари</div>
+
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="row" id="products-list"></div>
     </div>
+    {% else %}
+    <p>You are not logged in</p>
+    <a class="btn btn-success" href="{% url 'login' %}">login</a>
+    {% endif %}
+    <div class="push"></div>
+  </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <footer>
+    <div class="footer-container">
+      <div class="left-col">
+        <img src="logo.png" alt="" class="logo">
+        <div class="social-media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="rights-text">© 2020
+          Online System Auction</p>
+      </div>
 
-    <script>
-        var data,ownerName;
-        var users,currentUser;
+      <div class="right-col">
+        <a href="#"> <img src=" {% static 'img/OnlineAuction.svg' %}" alt="logo" width="320" height="200"></a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <script>
+    var data, ownerName;
+    var users, currentUser;
 
-        //get all user information
-        currentUser = {{ user.id }}
-        $.ajax({url: "/product/rest/users/?format=json", success: function(result){
-            users= result;
-            //console.log(result);
+    //get all user information
+    currentUser = {{ user.id }}
+    $.ajax({
+      url: "/product/rest/users/?format=json", success: function (result) {
+        users = result;
+        //console.log(result);
 
-        },complete:function(){
+      }, complete: function () {
         //do nothing
-        },});
+      },
+    });
 
-        //get products
-        function getproductinfo(){
-            $.ajax({url: "/product/rest/products/?id=&itemname=&owner="+currentUser+"&status=0&buyer=", success: function(result){
-                data= result;
-                //console.log(result);
-                $('#users').html('');
-            },
-            complete:function(){
-                refresh();
-                printResult();
-                if(data.length==0){
-                    $("#products-list").html("")
-                    $("#products-list").append('You currently have not uploaded any products');
-                }},});
-            }
+    //get products
+    function getproductinfo() {
+      $.ajax({
+        url: "/product/rest/products/?id=&itemname=&owner=" + currentUser + "&status=0&buyer=", success: function (result) {
+          data = result;
+          //console.log(result);
+          $('#users').html('');
+        },
+        complete: function () {
+          refresh();
+          printResult();
+          if (data.length == 0) {
+            $("#products-list").html("")
+            $("#products-list").append('You currently have not uploaded any products');
+          }
+        },
+      });
+    }
 
-            //function to change owner from url to name
-            function refresh(){
-            for(var key in data)
-            {
-                    for(var x in users)
-                    {
-                        if(data[key].owner == users[x].url)
-                        {
-                            data[key].owner = users[x].username
-                        }
-                    }
-            }
-            }
-            //Append products to html
-            function printResult(){
-                $('#products-list').html('');
-                for(var key in data){
-                    $("#products-list").append('<div class="col-xs-6 col-lg-4" style=""><div class="card " style="width:225x;"><img class="card-img-top " style=" object-fit: cover;width:225px;margin:0 auto;" src="'+data[key].image+'" alt="Card image"><div class="card-body"><h4 class="card-title">'+data[key].itemname +'</h4><p class="card-text">'+data[key].description +'</p><a href ="/product/'+data[key].id+'/'+'">gotolink</a></div></div></div>');
-                }
-            }
-            getproductinfo();
+    //function to change owner from url to name
+    function refresh() {
+      for (var key in data) {
+        for (var x in users) {
+          if (data[key].owner == users[x].url) {
+            data[key].owner = users[x].username
+          }
+        }
+      }
+    }
+    //Append products to html
+    function printResult() {
+      $('#products-list').html('');
+      for (var key in data) {
+        $("#products-list").append('<div class="cardd"><div class="card"><img class="card-img-top" src="' + data[key].image + '" alt="Card image"><div class="card-body"><h5 class="card-title">' + data[key].itemname + '</h5><p class="card-text">Початкова ставка: ' + data[key].initialbid + ' UAH</p><a href ="/product/' + data[key].id + '/' + '" class="baton">Відкрити</a></div></div></div>');
+
+      }
+    }
+    getproductinfo();
             //setInterval(getproductinfo, 5000);
-        </script>
+  </script>
 
-    </body>
+</body>
 
 </html>

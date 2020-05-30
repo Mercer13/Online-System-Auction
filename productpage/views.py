@@ -13,12 +13,15 @@ from productpage.serializer import UserSerializer, GroupSerializer,ProductSerial
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_protect
 from .forms import DocumentForm
+
+from django.core.paginator import Paginator
+
 #from django.contrib.comments import Comment
 
 def productadd(request):
     return render(request,"productproductadd/productadd.html")
 
-def products(request):
+def products(request):   
     return render(request,"productpage/product_page.html")
 
 def getmyproduct(request):
@@ -37,13 +40,11 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
 @cache_page(60 * 15)
-@csrf_protect    
+@csrf_protect   
+
 def getproduct(request,id):
     id=int(id)
-    context={
-        'id':id
-    }
-    return render(request,"productpage/productinfo.html",context)
+    return render(request,"productpage/productinfo.html", context ={'id':id} )
     
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()

@@ -1,0 +1,77 @@
+html {
+    height: 100%;
+    margin: 0;
+}
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eeeeee;
+}
+
+.wrapper {
+    min-height: 75%;
+    margin-bottom: 0px;
+}
+
+/* Логотип */
+
+.logotip{
+    width: 250px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+/* ... Логотип */
+
+ .center
+ {
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: auto;
+ }
+
+ .baton{
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    bottom: 0;
+    width: 390px;
+    font-size: 16px;
+    color: #f1f1f1;
+    background: #fc5c65;
+    border: none;
+    font-weight: 700;
+    outline: none;
+    border-radius: 30px;
+    bottom: 13px;
+    cursor: pointer;
+    transition: opacity .3s linear;
+    
+  }
+  
+  .baton:hover{
+    text-decoration: none;
+    opacity: .7;
+    color: #f1f1f1;
+    background: #fc5c65;
+  }
+
+  .caption {
+    background: #ff006a98; 
+    padding: 10px;
+    box-shadow: 0 2px  4px 0 rgba(0,0,0,.3);
+    color: white;
+    font-family: "Roboto Slab",serif;
+    font-style: normal;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 0;
+
+  }

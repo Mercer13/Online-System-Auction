@@ -1,0 +1,88 @@
+html {
+  height: 100%;
+  margin: 0;
+}
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #eeeeee;
+}
+
+.wrapper {
+  min-height: 75%;
+  margin-bottom: 0px;
+}
+
+.logotip{
+    width: 250px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.table_price {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border-collapse: collapse;
+    border-left: 3px solid #5cb4fc;
+    border-right: 3px solid #5cb4fc;
+    border-bottom: 3px solid #5cb4fc;
+    font-family: "Lucida Grande", sans-serif;
+   }
+  
+  .caption {
+    background: #5cb4fc; 
+    padding: 10px;
+    box-shadow: 0 2px  4px 0 rgba(0,0,0,.3);
+    color: white;
+    font-family: "Roboto Slab",serif;
+    font-style: normal;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  
+  .table_price td, .table_price th {
+    padding: 10px;
+  }
+  
+  .table_price th{
+    text-align: center;
+    font-size: 18px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border-collapse: collapse;
+    border-left: 3px solid #5cb4fc;
+    border-right: 3px solid #5cb4fc;
+    border-bottom: 3px solid #5cb4fc;
+    border-top: 3px solid #5cb4fc;
+    font-family: "Lucida Grande", sans-serif;
+    
+  }
+  .table_price tr:nth-child(2n) {
+    background: #E5E5E5;
+  }
+  
+  .table_price td:last-of-type {
+    text-align: center;
+  }
+  
+  .table_price a {
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 10px;
+    background: #F79361;
+    box-shadow: 2px 2px 0 0 #a22800;
+    position: relative;
+  }
+  
