@@ -32,10 +32,9 @@ $(document).ready(function () {
                 refresh();
                 printResult();
                 if (data.length == 0) {
-                    $("#products-list").html("")
-                    $("#products-list-not-auth").html("")
-                    $("#products-list").append('<h1>There are currently no products</h1>');
-                    $("#products-list-not-auth").append('<h1>There are currently no products</h1>');
+                    $("#prod_noth").html("")
+                    $("#prod_noth").append('<div class="caption1">Товари відсутні!</div>');
+
                 }
             },
 

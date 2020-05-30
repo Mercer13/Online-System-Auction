@@ -51,3 +51,15 @@ body {
     margin-top: 0;
     margin-bottom: 15px;
   }
+
+  .caption1 {
+    background: #c3c4c488; 
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    font-family: "Roboto Slab",serif;
+    font-style: normal;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }

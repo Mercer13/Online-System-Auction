@@ -83,7 +83,7 @@
 
     {% if user.is_authenticated %}
     <div class="caption">Мої товари</div>
-
+    <div id="prod_noth"></div>
     <div class="row row-offcanvas row-offcanvas-right">
       <div class="row" id="products-list"></div>
     </div>
@@ -144,8 +144,8 @@
           refresh();
           printResult();
           if (data.length == 0) {
-            $("#products-list").html("")
-            $("#products-list").append('You currently have not uploaded any products');
+            $("#prod_noth").html("")
+            $("#prod_noth").append('<div class="caption1">Ваші товари відсутні!</div>');
           }
         },
       });
