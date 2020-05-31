@@ -53,7 +53,7 @@ function finalproduct() {
             //content-type = application/x-www-form-urlencoded
         },
         success: function () {
-            window.location.replace("/product/");
+            window.location.replace("/product/myproducts/");
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -77,7 +77,7 @@ function deleteproduct() {
             //content-type = application/x-www-form-urlencoded
         },
         success: function () {
-            window.location.replace("/product/");
+            window.location.replace("/product/myproducts/");
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -156,7 +156,7 @@ function getproductinfo() {
     $.ajax({
         url: "/product/rest/products/?id=" + id + "&itemname=&owner=&status=&buyer=", success: function (result) {
             data = result;
-            console.log(result + "pisya");
+            console.log(result + "-");
 
 
 

@@ -114,9 +114,13 @@
       </div>
     </div>
   </footer>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
   <script src="{% static 'js/main.js' %}"></script>
+
   <script>
+    
     var data, ownerName;
     var users, currentUser;
 
@@ -161,6 +165,7 @@
         }
       }
     }
+
     //Append products to html
     function printResult() {
       $('#products-list').html('');
@@ -170,7 +175,7 @@
       }
     }
     getproductinfo();
-            //setInterval(getproductinfo, 5000);
+    //setInterval(getproductinfo, 5000);
   </script>
 
 </body>

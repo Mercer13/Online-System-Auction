@@ -135,6 +135,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script>
+
         var data, ownerName;
         var users, currentUser;
         //get all user information 
@@ -182,7 +183,6 @@
         //Append products to html
         function printResult() {
 
-
             $('#name').html('');
             $('#initbid').html('');
             $('#datecr').html('');
@@ -190,7 +190,6 @@
             $('#priced').html('');
 
             for (var key in data) {
-
                 $("#name").append('<tr><td>' + data[key].itemname + '</td></tr>');
                 $("#initbid").append('<tr><td>' + data[key].initialbid + ' UAH</td></tr>');
                 $("#datecr").append('<tr><td>' + data[key].createddate + '</td></tr>');
@@ -201,7 +200,6 @@
 
         getproductinfo();
         setInterval(getproductinfo, 5000);
-
     </script>
 </body>
 
