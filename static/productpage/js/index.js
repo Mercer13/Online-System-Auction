@@ -35,7 +35,7 @@ function getproductinfo()
         if(data.length==0)
         {
             $("#products-list").html("")
-            $("#products-list").append('<h1>There are currently no products</h1>');
+            $("#products-list").append('<h1 text-align: center;>Наразі товари відсутні!</h1>');
         }
     },
     

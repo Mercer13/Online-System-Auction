@@ -1,0 +1,66 @@
+* {
+	box-sizing: border-box;
+}
+html {
+    height: 100%;
+    margin: 0;
+}
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eeeeee;
+}
+
+.wrapper {
+    min-height: 75%;
+    margin-bottom: 0px;
+}
+
+
+.auth1{
+	color: black;
+}
+
+.auth1:hover{
+	color: #8ab7da;
+}
+
+/* Логотип */
+
+.logotip{
+    width: 250px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+/* ... Логотип */
+
+.caption {
+    background: #ff002291; 
+    padding: 10px;
+    box-shadow: 0 2px  4px 0 rgba(0,0,0,.3);
+    color: white;
+    font-family: "Roboto Slab",serif;
+    font-style: normal;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .caption1 {
+    background: #c3c4c488; 
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    font-family: "Roboto Slab",serif;
+    font-style: normal;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initital-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Online auction</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/scroll.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/navigation.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="header-overlay">
+        <div class="nav-container">
+          <div class="logotip">
+            <a href="{% url 'product' %}"> <img src=" {% static 'img/logotip.svg' %}" alt="logo" width="280"
+                height="60"></a>
+          </div>
+
+
+          <!-- Навігація -->
+          <div class="nav-wrapper">
+            <div>
+              <div id="menu-togle" class="menu-icon">
+
+                <div class="menu-icon-line">
+                  <div style="margin-top: -40px; font-size: 12px; color: #112c5a; margin-left: -2px;">МЕНЮ</div>
+                </div>
+
+              </div>
+
+            </div>
+            <!-- Навігація для моб. пристрою -->
+            <div id="mobile-nav" class="mobile-nav">
+              <div class="welcome">Ласкаво просимо, &emsp;&emsp; {{ user.username }}</div>
+              <div class="mobile-nav__title">Меню</div>
+
+              <ul class="mobile-nav__list">
+                <li class="mobile-nav__item"><a href="{% url 'product_bought' %}" class="mobile-nav__link"><i
+                      class="fas fa-shopping-basket"></i> Куплено</a></li>
+                <li class="mobile-nav__item"><a href="{% url 'products_sold' %}" class="mobile-nav__link"><i
+                      class="fas fa-money-bill-wave"></i> Продано</a></li>
+                <li class="mobile-nav__item"><a href="{% url 'my_product' %}" class="mobile-nav__link"><i
+                      class="fas fa-user"></i> Мої товари</a></li>
+                <li class="mobile-nav__item"><a href="{% url 'upload_product' %}" class="mobile-nav__link"><i
+                      class="fas fa-cart-plus"></i> Додати товар</a></li>
+                <li class="mobile-nav__item"><a style="color: #707070" href="#" class="mobile-nav__link"><i
+                    class="fa fa-info-circle" aria-hidden="true"></i> Про аукціон</a></li>      
+              </ul>
+              <div class="exit">
+                <a title="Вийди звідси розбійник!" class="exit1" href="{% url 'logout' %}"><i
+                    class="fas fa-sign-out-alt"></i> Вийти</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="caption">Про аукціон</div>
+    
+    <div class="block_largeimage imagebg center " style="background: url(/storage/uploads/public/5cf/7cf/44d/5cf7cf44d05d8720496641.png) no-repeat center; background-size: cover; ">
+        <div class="container">
+            <img src="/storage/uploads/public/5cf/7cf/4cc/5cf7cf4cc3ab6741678532.png">
+            <h3>Prozorro.Продажі - Інформація для покупців</h3>
+            <p style="text-align: center;">
+                ProZorro.Продажі - це державне підприємство, яке адмініструє електронну торгову систему з продажу державного та комунального майна, а також слугує центральною базою даних для електронних торгів. Проект “Прозорро.Продажі” був створений в 2016 році за ініціативи Міністерства економічного розвитку та торгівлі України, Transparency International Україна, Фонду гарантування вкладів фізичних осіб та Національного Банку &nbsp;України. Головна мета реформи держпродажів - прозорий, швидкий та ефективний, процес продажу активів державної та комунальної власності з високим рівнем громадського контролю та запобіганням корупції.
+            </p>
+            <p style="text-align: center;">Більше інформації для продавців та покупців шукайте в нашому буклеті “Прозорро.Продажі” для чайників за 
+                <a href="https://drive.google.com/open?id=1wF47FFF5G5K4p92l-LM_25xFgLIguXN1" rel="noopener noreferrer" target="_blank">посиланням</a>
+            </p>
+        </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="left-col">
+        <img src="logo.png" alt="" class="logo">
+        <div class="social-media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="rights-text">© 2020
+          Online System Auction</p>
+      </div>
+
+      <div class="right-col">
+        <a href="#"> <img src=" {% static 'img/OnlineAuction.svg' %}" alt="logo" width="320" height="200"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
