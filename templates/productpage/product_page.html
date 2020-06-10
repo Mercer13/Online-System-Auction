@@ -65,6 +65,8 @@
                       class="fas fa-user"></i> Мої товари</a></li>
                 <li class="mobile-nav__item"><a href="{% url 'upload_product' %}" class="mobile-nav__link"><i
                       class="fas fa-cart-plus"></i> Додати товар</a></li>
+                <li class="mobile-nav__item"><a href="{% url 'about' %}" class="mobile-nav__link"><i
+                    class="fa fa-info-circle" aria-hidden="true"></i> Про аукціон</a></li>        
               </ul>
               <div class="exit">
                 <a title="Вийди звідси розбійник!" class="exit1" href="{% url 'logout' %}"><i
@@ -75,10 +77,61 @@
         </div>
       </div>
     </header>
+
     <div id="prod_noth"></div>
     <div class="row row-offcanvas row-offcanvas-right">
-      <div class="row" id="products-list"></div>
+
+        {% for prod in product_list %}
+
+        
+            <div class="cardd">
+                <div class="card"><img class="card-img-top" src="{{ prod.image.url }}" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ prod.itemname }} </h5>
+                        <p class="card-text">Початкова ставка: {{ prod.initialbid }} UAH</p><a href="{{ prod.id }}"
+                            class="baton">Відкрити</a>
+                    </div>
+                </div>
+            </div>
+        
+
+        {% endfor %}
+
     </div>
+
+    {% if is_paginated %}
+
+    <nav aria-label="...">
+        <ul class="pagination">
+    
+            <li class="page-item {% if not prev_url %} disabled {% endif %}">
+                <a class="page-link" href="{{ prev_url }}" tabindex="-1">Назад</a>
+            </li>
+    
+            {% for prod in product_list.paginator.page_range %}
+    
+                {% if product_list.number == prod %}
+                <li class="page-item active">
+                    <a class="page-link" href="?page={{ prod }}"> {{ prod }}
+                        <span class="sr-only"> (current) </span>
+                    </a>
+                </li>
+    
+                {% elif prod > product_list.number|add:-3 and prod < product_list.number|add:3 %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ prod }}"> {{ prod }} </a>
+                </li>
+                {% endif %}
+    
+            {% endfor %}
+
+            <li class="page-item {% if not next_url %} disabled {% endif %}">
+                <a class="page-link" href="{{ next_url }}" tabindex="-1">Вперед</a>
+            </li>
+        </ul>
+    </nav>
+    
+    {% endif %}
 
     {% else %}
 
@@ -153,7 +206,7 @@
 
   <script src="{% static 'js/main.js' %}"></script>
 
-  <script src="{% static 'js/product_page.js' %}"></script>
+  <!-- <script src="{% static 'js/product_page.js' %}"></script> -->
 
 </body>
 

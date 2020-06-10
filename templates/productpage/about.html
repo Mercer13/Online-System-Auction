@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/my_product.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/scroll.css' %}">
@@ -65,12 +65,12 @@
                       class="fas fa-shopping-basket"></i> Куплено</a></li>
                 <li class="mobile-nav__item"><a href="{% url 'products_sold' %}" class="mobile-nav__link"><i
                       class="fas fa-money-bill-wave"></i> Продано</a></li>
-                <li class="mobile-nav__item"><a style="color: #707070" href="#" class="mobile-nav__link"><i
+                <li class="mobile-nav__item"><a href="{% url 'my_product' %}" class="mobile-nav__link"><i
                       class="fas fa-user"></i> Мої товари</a></li>
                 <li class="mobile-nav__item"><a href="{% url 'upload_product' %}" class="mobile-nav__link"><i
                       class="fas fa-cart-plus"></i> Додати товар</a></li>
-                <li class="mobile-nav__item"><a href="{% url 'about' %}" class="mobile-nav__link"><i
-                    class="fa fa-info-circle" aria-hidden="true"></i> Про аукціон</a></li>       
+                <li class="mobile-nav__item"><a style="color: #707070" href="#" class="mobile-nav__link"><i
+                    class="fa fa-info-circle" aria-hidden="true"></i> Про аукціон</a></li>      
               </ul>
               <div class="exit">
                 <a title="Вийди звідси розбійник!" class="exit1" href="{% url 'logout' %}"><i
@@ -82,20 +82,21 @@
       </div>
     </header>
 
-
-    {% if user.is_authenticated %}
-    <div class="caption">Мої товари</div>
-    <div id="prod_noth"></div>
-
-    <div class="row row-offcanvas row-offcanvas-right">
-      <div class="row" id="products-list"></div>
-    </div>
+    <div class="caption">Про аукціон</div>
     
-    {% else %}
-    <p>You are not logged in</p>
-    <a class="btn btn-success" href="{% url 'login' %}">login</a>
-    {% endif %}
-    <div class="push"></div>
+    <div class="block_largeimage imagebg center " style="background: url(/storage/uploads/public/5cf/7cf/44d/5cf7cf44d05d8720496641.png) no-repeat center; background-size: cover; ">
+        <div class="container">
+            <img src="/storage/uploads/public/5cf/7cf/4cc/5cf7cf4cc3ab6741678532.png">
+            <h3>Prozorro.Продажі - Інформація для покупців</h3>
+            <p style="text-align: center;">
+                ProZorro.Продажі - це державне підприємство, яке адмініструє електронну торгову систему з продажу державного та комунального майна, а також слугує центральною базою даних для електронних торгів. Проект “Прозорро.Продажі” був створений в 2016 році за ініціативи Міністерства економічного розвитку та торгівлі України, Transparency International Україна, Фонду гарантування вкладів фізичних осіб та Національного Банку &nbsp;України. Головна мета реформи держпродажів - прозорий, швидкий та ефективний, процес продажу активів державної та комунальної власності з високим рівнем громадського контролю та запобіганням корупції.
+            </p>
+            <p style="text-align: center;">Більше інформації для продавців та покупців шукайте в нашому буклеті “Прозорро.Продажі” для чайників за 
+                <a href="https://drive.google.com/open?id=1wF47FFF5G5K4p92l-LM_25xFgLIguXN1" rel="noopener noreferrer" target="_blank">посиланням</a>
+            </p>
+        </div>
+    </div>
+
   </div>
 
   <footer>
@@ -122,65 +123,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
   <script src="{% static 'js/main.js' %}"></script>
-
-  <script>
-    
-    var data, ownerName;
-    var users, currentUser;
-
-    //get all user information
-    currentUser = {{ user.id }}
-    $.ajax({
-      url: "/product/rest/users/?format=json", success: function (result) {
-        users = result;
-        //console.log(result);
-
-      }, complete: function () {
-        //do nothing
-      },
-    });
-
-    //get products
-    function getproductinfo() {
-      $.ajax({
-        url: "/product/rest/products/?id=&itemname=&owner=" + currentUser + "&status=0&buyer=", success: function (result) {
-          data = result;
-          //console.log(result);
-          $('#users').html('');
-        },
-        complete: function () {
-          refresh();
-          printResult();
-          if (data.length == 0) {
-            $("#prod_noth").html("")
-            $("#prod_noth").append('<div class="caption1">Ваші товари відсутні!</div>');
-          }
-        },
-      });
-    }
-
-    //function to change owner from url to name
-    function refresh() {
-      for (var key in data) {
-        for (var x in users) {
-          if (data[key].owner == users[x].url) {
-            data[key].owner = users[x].username
-          }
-        }
-      }
-    }
-
-    //Append products to html
-    function printResult() {
-      $('#products-list').html('');
-      for (var key in data) {
-        $("#products-list").append('<div class="cardd"><div class="card"><img class="card-img-top" src="' + data[key].image + '" alt="Card image"><div class="card-body"><h5 class="card-title">' + data[key].itemname + '</h5><p class="card-text">Початкова ставка: ' + data[key].initialbid + ' UAH</p><a href ="/product/' + data[key].id + '/' + '" class="baton">Відкрити</a></div></div></div>');
-
-      }
-    }
-    getproductinfo();
-    //setInterval(getproductinfo, 5000);
-  </script>
 
 </body>
 

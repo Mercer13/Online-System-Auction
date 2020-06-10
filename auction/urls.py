@@ -19,10 +19,12 @@ from django.contrib.auth import views
 from home.views import MyLoginView
 from django.conf import settings
 from django.conf.urls.static import static
+from productpage.views import products
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MyLoginView.as_view(),name='home'),
+    path('product/', products, name='products'),
     path('signup/',include('home.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('product/',include('productpage.urls'),name='product'),

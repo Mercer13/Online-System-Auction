@@ -21,8 +21,33 @@ from django.core.paginator import Paginator
 def productadd(request):
     return render(request,"productproductadd/productadd.html")
 
-def products(request):   
-    return render(request,"productpage/product_page.html")
+def about(request):
+    return render(request,"productpage/about.html")
+
+def products(request):
+    product_all = Product.objects.all()
+    paginator = Paginator(product_all, 8)
+    page_number = request.GET.get("page", 1)
+    page = paginator.get_page(page_number)
+
+    is_paginated = page.has_other_pages()
+    if page.has_previous():
+        prev_url = '?page={}'.format(page.previous_page_number())
+    else:
+        prev_url = ''
+
+    if page.has_next():
+        next_url = '?page={}'.format(page.next_page_number())
+    else:
+        next_url = ''
+
+    context = {
+        'product_list': page,
+        'is_paginated': is_paginated,
+        'prev_url': prev_url,
+        'next_url': next_url
+    }
+    return render(request,"productpage/product_page.html", context=context)
 
 def getmyproduct(request):
     return render(request,"productpage/myproducts.html")
@@ -32,6 +57,7 @@ def productssold(request):
     
 def productbought(request):
     return render(request,"productpage/productbought.html")
+    
 
 class UserViewSet(viewsets.ModelViewSet):
     """

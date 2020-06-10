@@ -17,5 +17,6 @@ urlpatterns = [
     path('myproducts/', views.getmyproduct, name="my_product"),
     path('productssold/', views.productssold, name="products_sold"),
     path('productbought/', views.productbought, name="product_bought"),
-    path('uploadproduct/', views.model_form_upload, name="upload_product")
+    path('uploadproduct/', views.model_form_upload, name="upload_product"),
+    path('about/', views.about, name="about")
 ]

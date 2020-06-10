@@ -40,7 +40,7 @@ body {
 /* ... Логотип */
 
 .caption {
-    background: #ff002291; 
+    background: #fc5656; 
     padding: 10px;
     box-shadow: 0 2px  4px 0 rgba(0,0,0,.3);
     color: white;
@@ -49,11 +49,11 @@ body {
     font-size: 26px;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 15px;
+
   }
 
   .caption1 {
-    background: #c3c4c488; 
+    background: #dbdbdb9c; 
     padding: 10px;
     color: rgb(0, 0, 0);
     font-family: "Roboto Slab",serif;
@@ -61,6 +61,5 @@ body {
     font-size: 26px;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 15px;
-  }
 
+  }
