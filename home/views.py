@@ -11,7 +11,7 @@ from .forms import SignUpForm
 # Create your views here.
 
 class MyLoginView(LoginView):
-    template_name = 'main.html'
+    template_name = 'registration/login.html'
 
 def log(request):
     return render(request,'registration/login.html')
