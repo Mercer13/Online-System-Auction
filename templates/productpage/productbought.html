@@ -16,6 +16,9 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/scroll.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/navigation.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}"> <!-- nav -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- nav -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -30,53 +33,46 @@
 
 <body>
   <div class="wrapper">
-    <header class="header">
-      <div class="header-overlay">
-        <div class="nav-container">
-          <div class="logotip">
-            <a href="{% url 'product' %}"> <img src=" {% static 'img/logotip.svg' %}" alt="logo" width="280"
-                height="60"></a>
-          </div>
+    <!-- МЕНЮ -->
 
+    <header>
+      <nav class="cd-main-nav-wrapper">
+        <ul class="mainnav">
+          <li class="mainnav2" style="display: inline-block; ">
+            <a href="{% url 'product' %}"> <img src=" {% static 'img/logo.png' %}" height="65"></a>
+          </li>
+          <li class="mainnav1" style="display: inline-block; ">
+            <form action="{% url 'product' %}" class="search">
+              <input type="search" name="search" placeholder="Пошук" class="input" />
+              <input type="submit" name="" class="submit" />
+            </form>
+          </li>
+        </ul>
 
-          <!-- Навігація -->
-          <div class="nav-wrapper">
-            <div>
-              <div id="menu-togle" class="menu-icon">
+        <ul class="cd-main-nav">
 
-                <div class="menu-icon-line">
-                  <div style="margin-top: -40px; font-size: 12px; color: #112c5a; margin-left: -2px;">МЕНЮ</div>
-                </div>
+          <li><a href="{% url 'product' %}">Головна</a></li>
+          <li><a href="{% url 'about' %}">Про аукціон</a></li>
+          
 
-              </div>
-
-            </div>
-            <!-- Навігація для моб. пристрою -->
-            <div id="mobile-nav" class="mobile-nav">
-              <div class="welcome">Ласкаво просимо, &emsp;&emsp; {{ user.username }}</div>
-              <div class="mobile-nav__title">Меню</div>
-
-              <ul class="mobile-nav__list">
-                <li class="mobile-nav__item"><a style="color: #707070" href="#" class="mobile-nav__link"><i
-                      class="fas fa-shopping-basket"></i> Куплено</a></li>
-                <li class="mobile-nav__item"><a href="{% url 'products_sold' %}" class="mobile-nav__link"><i
-                      class="fas fa-money-bill-wave"></i> Продано</a></li>
-                <li class="mobile-nav__item"><a href="{% url 'my_product' %}" class="mobile-nav__link"><i
-                      class="fas fa-user"></i> Мої товари</a></li>
-                <li class="mobile-nav__item"><a href="{% url 'upload_product' %}" class="mobile-nav__link"><i
-                      class="fas fa-cart-plus"></i> Додати товар</a></li>
-                <li class="mobile-nav__item"><a href="{% url 'about' %}" class="mobile-nav__link"><i
-                    class="fa fa-info-circle" aria-hidden="true"></i> Про аукціон</a></li>        
-              </ul>
-              <div class="exit">
-                <a title="Вийди звідси розбійник!" class="exit1" href="{% url 'logout' %}"><i
-                    class="fas fa-sign-out-alt"></i> Вийти</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <li>
+            <a href="#0" class="cd-subnav-trigger"><span>Профіль</span></a>
+            <ul>
+              <li class="go-back"><a href="#0">Меню</a></li>
+              <li><a href="{% url 'product_bought' %}"> Куплено</a></li>
+              <li><a href="{% url 'products_sold' %}"> Продано</a></li>
+              <li><a href="{% url 'my_product' %}"> Мої товари</a></li>
+              <li><a href="{% url 'upload_product' %}"> Додати товар</a></li>
+              <li><a href="{% url 'logout' %}"> Вийти</a></li>
+              <li><a href="#0" class="placeholder">Placeholder</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <a href="#0" class="cd-nav-trigger"><span></span></a>
     </header>
+    <!-- //МЕНЮ -->
+    <main class="cd-main-content">
 
 
     {% if user.is_authenticated %}
@@ -109,7 +105,7 @@
     {% endif %}
     <div class="push"></div>
   </div>
-
+</main>
   <footer>
     <div class="footer-container">
       <div class="left-col">

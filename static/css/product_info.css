@@ -66,3 +66,19 @@ body {
     margin-top: 0;
     margin-bottom: 15px;
   }
+
+  .content-info h1{
+    font-size: 35px;
+    padding-bottom: 25px;
+    padding-top: 10px;
+  }
+
+  .content-info div{
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
+
+  .buyerControls form{
+    width: 500px;
+ 
+  }

@@ -1,0 +1,55 @@
+
+  
+  ol {
+    list-style: none;
+  }
+  
+  /* FILTERS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .filters {
+    text-align: center;
+    background-color: #d3d3d385;
+    height: 55px;
+    padding-top: 4px;
+    
+  }
+  
+  .filters * {
+    display: inline-block;
+  }
+  
+  .filters a{
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    font: 13px Tahoma, Arial, sans-serif;
+    font-size: 15px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.50rem;
+    margin-top: 0.50rem;
+    min-width: 50px;
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.1s;
+    text-decoration: none;
+  }
+  
+
+  
+  .filters li{
+    padding-left: 50px;
+    position: relative;
+    z-index: 1;
+    display: block;
+    min-width: 1em;
+    padding: .05em;
+    border-radius: 1.2em;
+
+    border: 1px solid darken(#d99d61, 5%);
+    box-shadow: 0px 6px 11px rgba(0, 0, 0, 0.432);
+    transition: transform .1s, box-shadow .2s, background-color .2s;
+  }
+
+  .filters li:hover{
+    transition: opacity .3s linear;
+    background-color: rgb(255, 255, 255);
+  }

@@ -9,26 +9,34 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/scroll.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">   
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="logotip">
-            <a href="{% url 'product' %}"> <img src=" {% static 'img/logotip.svg' %}" alt="logo" width="280"
-                    height="60"></a>
-        </div>
-
-        <h2 style="text-align: center; padding-top:30px">Реєстрація</h2>
-        <div class="center">
-            <form method="post">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button class="baton" type="submit">Зареєструватись</button>
-            </form>
-            <a style="text-decoration: none;" href="{% url 'login' %}"><div class="baton">Авторизація</div></a>
-        </div>
+  <section class="big-hero hero--full hero--cover an-in">
+    <div class="hero__media">
+      <span></span>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="hero__content">
+              <div class="h1">
+                  <p><strong>Онлайн система аукціон</strong></p>
+                      <form method="POST">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <button class="btn primary" >Зареєструватись</button>
+                        <a style="text-decoration: none;" href="{% url 'login' %}"><div class="btn primary">Авторизація</div></a>
+                    </form>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
     <footer>
         <div class="footer-container">

@@ -40,18 +40,27 @@ body {
 /* ... Логотип */
 
 .caption {
-    background: #ff002291; 
+    background: #ff000049; 
     padding: 10px;
-    box-shadow: 0 2px  4px 0 rgba(0,0,0,.3);
     color: white;
-    font-family: "Roboto Slab",serif;
+    font: 13px Tahoma, Arial, sans-serif;
     font-style: normal;
-    font-size: 26px;
+    font-size: 20px;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 15px;
-  }
 
+  }
+  .caption2 {
+    background: #0091229d; 
+    padding: 10px;
+    color: white;
+    font: 13px Tahoma, Arial, sans-serif;
+    font-style: normal;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 0;
+
+  }
   .caption1 {
     background: #c3c4c488; 
     padding: 10px;
@@ -64,3 +73,5 @@ body {
     margin-bottom: 15px;
   }
 
+
+  

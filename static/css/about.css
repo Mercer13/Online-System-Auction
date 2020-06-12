@@ -44,7 +44,7 @@ body {
     padding: 10px;
     box-shadow: 0 2px  4px 0 rgba(0,0,0,.3);
     color: white;
-    font-family: "Roboto Slab",serif;
+   
     font-style: normal;
     font-size: 26px;
     text-align: center;
@@ -56,10 +56,36 @@ body {
     background: #dbdbdb9c; 
     padding: 10px;
     color: rgb(0, 0, 0);
-    font-family: "Roboto Slab",serif;
+    
     font-style: normal;
     font-size: 26px;
     text-align: center;
     margin-top: 0;
 
   }
+
+   .about_auction b{
+      font-weight: 550;
+      
+  }
+  .about_auction h1{
+    font-size: 24px;
+    padding-bottom: 10px;
+  }
+
+  .about_auction p{
+    font-size: 17px;
+  }
+
+  .container{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .about_auction ul{
+      padding-left: 50px;
+  }
+
+  .about_auction li{
+    padding-bottom: 10px;
+}

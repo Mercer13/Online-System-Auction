@@ -30,8 +30,9 @@ body {
  .center
  {
     width: 100%;
-    max-width: 420px;
+    max-width: 500px;
     padding: 15px;
+    padding-top: 50px;
     margin: auto;
  }
 
@@ -39,10 +40,10 @@ body {
     text-align: center;
     vertical-align: middle;
     margin-top: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     bottom: 0;
-    width: 390px;
+    width: 100%;
     font-size: 16px;
     color: #f1f1f1;
     background: #fc5c65;
@@ -75,3 +76,39 @@ body {
     margin-top: 0;
 
   }
+
+  .form-control {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.select.form-control{
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    height: 25px;
+    font-size: 15px;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+label.requiredField{
+  padding-bottom: 5px;
+}
+
+select.form-control:not([size]):not([multiple]) {
+  height: 32px;
+}

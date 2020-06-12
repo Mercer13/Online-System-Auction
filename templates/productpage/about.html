@@ -17,6 +17,9 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/scroll.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/navigation.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}"> <!-- nav -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- nav -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -34,70 +37,67 @@
 
 <body>
   <div class="wrapper">
-    <header class="header">
-      <div class="header-overlay">
-        <div class="nav-container">
-          <div class="logotip">
-            <a href="{% url 'product' %}"> <img src=" {% static 'img/logotip.svg' %}" alt="logo" width="280"
-                height="60"></a>
-          </div>
+    <!-- МЕНЮ -->
 
+    <header>
+      <nav class="cd-main-nav-wrapper">
+        <ul class="mainnav">
+          <li class="mainnav2" style="display: inline-block; ">
+            <a href="{% url 'product' %}"> <img src=" {% static 'img/logo.png' %}" height="65"></a>
+          </li>
+          <li class="mainnav1" style="display: inline-block; ">
+            <form action="{% url 'product' %}" class="search">
+              <input type="search" name="search" placeholder="Пошук" class="input" />
+              <input type="submit" name="" class="submit" />
+            </form>
+          </li>
+        </ul>
 
-          <!-- Навігація -->
-          <div class="nav-wrapper">
-            <div>
-              <div id="menu-togle" class="menu-icon">
-
-                <div class="menu-icon-line">
-                  <div style="margin-top: -40px; font-size: 12px; color: #112c5a; margin-left: -2px;">МЕНЮ</div>
-                </div>
-
-              </div>
-
-            </div>
-            <!-- Навігація для моб. пристрою -->
-            <div id="mobile-nav" class="mobile-nav">
-              <div class="welcome">Ласкаво просимо, &emsp;&emsp; {{ user.username }}</div>
-              <div class="mobile-nav__title">Меню</div>
-
-              <ul class="mobile-nav__list">
-                <li class="mobile-nav__item"><a href="{% url 'product_bought' %}" class="mobile-nav__link"><i
-                      class="fas fa-shopping-basket"></i> Куплено</a></li>
-                <li class="mobile-nav__item"><a href="{% url 'products_sold' %}" class="mobile-nav__link"><i
-                      class="fas fa-money-bill-wave"></i> Продано</a></li>
-                <li class="mobile-nav__item"><a href="{% url 'my_product' %}" class="mobile-nav__link"><i
-                      class="fas fa-user"></i> Мої товари</a></li>
-                <li class="mobile-nav__item"><a href="{% url 'upload_product' %}" class="mobile-nav__link"><i
-                      class="fas fa-cart-plus"></i> Додати товар</a></li>
-                <li class="mobile-nav__item"><a style="color: #707070" href="#" class="mobile-nav__link"><i
-                    class="fa fa-info-circle" aria-hidden="true"></i> Про аукціон</a></li>      
-              </ul>
-              <div class="exit">
-                <a title="Вийди звідси розбійник!" class="exit1" href="{% url 'logout' %}"><i
-                    class="fas fa-sign-out-alt"></i> Вийти</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <ul class="cd-main-nav">
+          <li><a href="{% url 'product' %}">Головна</a></li>
+        </ul>
+      </nav>
+      <a href="#0" class="cd-nav-trigger"><span></span></a>
     </header>
-
-    <div class="caption">Про аукціон</div>
+    <!-- //МЕНЮ -->
+    <main class="cd-main-content">
+    <div class="caption">Онлайн система і цифровий аукціон</div>
     
-    <div class="block_largeimage imagebg center " style="background: url(/storage/uploads/public/5cf/7cf/44d/5cf7cf44d05d8720496641.png) no-repeat center; background-size: cover; ">
+    <div class="about_auction">
         <div class="container">
-            <img src="/storage/uploads/public/5cf/7cf/4cc/5cf7cf4cc3ab6741678532.png">
-            <h3>Prozorro.Продажі - Інформація для покупців</h3>
+            <h1 style="text-align: center; padding-top: 20px;"><b>Перше знаймоство</b></h1>
+
             <p style="text-align: center;">
-                ProZorro.Продажі - це державне підприємство, яке адмініструє електронну торгову систему з продажу державного та комунального майна, а також слугує центральною базою даних для електронних торгів. Проект “Прозорро.Продажі” був створений в 2016 році за ініціативи Міністерства економічного розвитку та торгівлі України, Transparency International Україна, Фонду гарантування вкладів фізичних осіб та Національного Банку &nbsp;України. Головна мета реформи держпродажів - прозорий, швидкий та ефективний, процес продажу активів державної та комунальної власності з високим рівнем громадського контролю та запобіганням корупції.
+              Наш сайт - функціональний український інтернет-аукціон. Маркетплейс, на якому будь-який зареєстрований користувач має можливість здійснювати покупку і продаж товарів, за допомогою аукціонних торгів. Проект постійно розвивається і вдосконалюється, забезпечуючи розвинений функціонал і безпеку користувачів.
             </p>
-            <p style="text-align: center;">Більше інформації для продавців та покупців шукайте в нашому буклеті “Прозорро.Продажі” для чайників за 
-                <a href="https://drive.google.com/open?id=1wF47FFF5G5K4p92l-LM_25xFgLIguXN1" rel="noopener noreferrer" target="_blank">посиланням</a>
+
+            <h1 style="text-align: center; padding-top: 20px;"><b>Як купити на сайті?</b></h1>
+            <ul>
+              <li><b>Перший крок: </b>пройдіть реєстрацію на сайті</li>
+              <li><b>Другий крок: </b>Перейдіть на сторінку лота що цікавить.</li>
+              <li><b>Третій крок: </b>Ознайомтесь із лотом.</li>
+              <li><b>Четвертий крок: </b>введіть величину ставки.</li>
+              <li><b>П'ятий крок: </b>Підтвердіть ставку.</li>
+              <li><b>Шостий крок: </b>Після перемоги в Аукціоні на вашу поштову адресу буде відправлено лист з контактною інформацією продавця.</li>
+            </ul>
+            <h1 style="text-align: center; padding-top: 20px;"><b>Як працює наш сайт?</b></h1>
+            <p style="text-align: center;">
+              Інтернет-аукціон працює 24 години на добу, 7 днів на тиждень.
+               Продавці виставляють на продаж лоти, а покупці роблять ставки і купують їх за допомогою аукціонних торгів.
+               Якщо ми вас зацікавили просимо на наш сайт. )
+
+            </p>
+            <p style="text-align: center;"> 
+              
+              <a href="{% url 'product' %}"> Летс гоу)</a>
             </p>
         </div>
-    </div>
+    </div> 
+
 
   </div>
+
+    </main>
 
   <footer>
     <div class="footer-container">

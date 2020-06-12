@@ -23,7 +23,7 @@ from productpage.views import products
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', MyLoginView.as_view(),name='home'),
+    path('', products,name='products'),
     path('product/', products, name='products'),
     path('signup/',include('home.urls')),
     path('accounts/', include('django.contrib.auth.urls')),

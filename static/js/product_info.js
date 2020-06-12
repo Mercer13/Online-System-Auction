@@ -136,12 +136,12 @@ function printResult() {
         for (var key in data) {
 
             if (data[key].bid != 0) {
-                $("#contents").append('<h1><b>' + data[key].itemname + '</b></h1> <div>Опис: ' + data[key].description + '</div><div>Початкова ставка: ' + data[key].initialbid + ' грн</div><div> Дата створення: ' + data[key].createddate + '</div><div><h2>Теперішня ставка: ' + data[key].bid + ' грн</h2></div>');
+                $("#contents").append('<h1><b>' + data[key].itemname + '</b></h1> <div>Опис: <br>' + data[key].description + '</div><div>Початкова ставка: <br>' + data[key].initialbid + ' грн</div><div> Дата створення: <br>' + data[key].createddate + '</div><div><h2>Теперішня ставка: <br>' + data[key].bid + ' грн</h2></div>');
 
                 $('#imageblock').append('<img class="img-fluid img justify-content-center" src="' + data[0].image + '">');
             }
             else {
-                $("#contents").append('<h1><b>' + data[key].itemname + '</b></h1> <div>Опис: ' + data[key].description + '</div><div>Початкова ставка: ' + data[key].initialbid + ' грн</div><div> Дата створення: ' + data[key].createddate + '</div>');
+                $("#contents").append('<h1><b>' + data[key].itemname + '</b></h1> <div> Опис:  <br>' + data[key].description + '<br></div><div>Початкова ставка: <br>' + data[key].initialbid + ' грн</div><div> Дата створення: <br>' + data[key].createddate + '</div>');
 
                 $('#imageblock').append('<img class="img-fluid img justify-content-center" src="' + data[0].image + '">');
             }
