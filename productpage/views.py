@@ -29,7 +29,7 @@ def products(request):
     if search_query:
         product_all = Product.objects.filter(itemname__icontains=search_query)
     else:
-        product_all = Product.objects.all()
+        product_all = Product.objects.filter(status=0)
         
     menu_all = Category.objects.all()
     paginator = Paginator(product_all, 6)
@@ -57,7 +57,7 @@ def products(request):
     return render(request,"productpage/product_page.html", context=context)
 
 def productcategory(request, url):
-    product_all = Product.objects.filter(category__url = url)
+    product_all = Product.objects.filter(category__url = url, status = 0)
     menu_all = Category.objects.all()
 
     paginator = Paginator(product_all, 6)

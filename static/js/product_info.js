@@ -101,7 +101,6 @@ function refresh() {
 
 //Append products to html
 function printResult() {
-
     console.log(currentUser, data[0].owner);
     if (currentUser == data[0].owner) {
         $("#bidInput").hide();
@@ -110,7 +109,6 @@ function printResult() {
         $('#imageblock').html('');
         console.log(data[0].owner);
         console.log("button BID, INPUTE hide");
-
         for (var key in data) {
             if (data[key].bid != 0) {
                 $("#contents").append('<h1><b>' + data[key].itemname + '</b></h1> <div>Опис: ' + data[key].description + '</div><div>Початкова ставка: ' + data[key].initialbid + ' грн</div><div>Дата початку: ' + data[key].createddate + '</div><div><h2>Теперішня ставка: ' + data[key].bid + 'грн</h2></div>');
@@ -120,10 +118,7 @@ function printResult() {
                 $("#contents").append('<h1><b>' + data[key].itemname + '</b></h1> <div>Опис: ' + data[key].description + '</div><div>Початкова ставка: ' + data[key].initialbid + ' грн</div><div>Дата початку: ' + data[key].createddate + '</div>');
                 $('#imageblock').append('<img class="img-fluid justify-content-center" src="' + data[0].image + '">');
             }
-
         }
-
-
     }
     else {
 
@@ -146,7 +141,6 @@ function printResult() {
                 $('#imageblock').append('<img class="img-fluid img justify-content-center" src="' + data[0].image + '">');
             }
         }
-
     }
 }
 

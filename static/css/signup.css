@@ -10,7 +10,7 @@ body{
 /* SECTION 1 */
 
 .big-hero.hero--cover {
-   height: calc(800px);
+   height: calc(900px);
 }
 .big-hero.hero--full {
    padding: 0;
@@ -211,6 +211,10 @@ input{
    margin-bottom: 0;
 }
 
+.top_strong{
+   font-size: 25px;
+}
+
 strong{
-   font-size: 15px;
+   font-size: 10px;
 }

@@ -51,8 +51,8 @@ $(document).ready(function () {
                 }
             }
         }
-
     }
+
     // Append products to html
     function printResult() {
 
@@ -62,6 +62,7 @@ $(document).ready(function () {
             $("#products-list-not-auth").append('<div class="cardd"><div class="card"><img class="card-img-top" src="'+data[key].image+'" alt="Card image"><div class="card-body"><h5 class="card-title">'+data[key].itemname +'</h5><p class="card-text">Початкова ставка: '+data[key].initialbid +' UAH</p></div></div></div>');
         }
     }
+    
     getusers();
     getproductinfo();
     // setInterval(getproductinfo, 5000);

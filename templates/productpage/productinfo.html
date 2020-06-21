@@ -21,8 +21,8 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/scroll.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/navigation.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
-  <link rel="stylesheet" href="{% static 'css/reset.css' %}"> <!-- nav -->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- nav -->
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}"> 
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -80,7 +80,9 @@
     <!-- //МЕНЮ -->
 
     <main class="cd-main-content">
-    
+      
+
+
     <!-- <div class="caption" >Сторінка товару</div> -->
     <div class="container-fluid content">
       <div class="row border">
@@ -104,21 +106,23 @@
 
               <div>
               
-                <button id="bid" class="baton"> Поставити </button>
+                <button id="bid" style="outline: none;" class="baton"> Поставити </button>
               </div>
 
             </div>
           </div>
 
           <div id="ownerControls " class="container" style="padding-top:10px">
-            <button style="width: 200px" id="abort" class="baton" data-toggle="modal"
+            <button style="width: 200px; outline: none;" id="abort" class="baton" data-toggle="modal"
               data-target="#ModalDelete">Видалити</button>
 
-            <button style="width: 200px" id="final" class="baton" data-toggle="modal"
+            <button style=" width: 200px; outline: none;" id="final" class="baton" data-toggle="modal"
               data-target="#ModalFinal">Продати!</button>
-
+            
           </div>
 
+
+          
           <!-- Modal Delete -->
           <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true">
@@ -217,7 +221,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="{% static 'js/product_info.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
-
 </body>
 
 </html>

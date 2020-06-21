@@ -44,7 +44,6 @@
     {% if user.is_authenticated %}
 
     <!-- МЕНЮ -->
-
     <header>
       <nav class="cd-main-nav-wrapper">
         <ul class="mainnav">
@@ -58,13 +57,9 @@
             </form>
           </li>
         </ul>
-
         <ul class="cd-main-nav">
-
           <li><a href="{% url 'product' %}">Головна</a></li>
           <li><a href="{% url 'about' %}">Про аукціон</a></li>
-          
-
           <li>
             <a href="#0" class="cd-subnav-trigger"><span>Профіль</span></a>
             <ul>
@@ -82,9 +77,10 @@
       <a href="#0" class="cd-nav-trigger"><span></span></a>
     </header>
     <!-- //МЕНЮ -->
-    
+
     <main class="cd-main-content">
       <div class="caption2">Ласкаво просимо, {{ user.username }} </div>
+
       <!-- CATEGORY -->
       <ol class="filters">
         <ul>
@@ -158,120 +154,121 @@
       {% else %}
 
 
-          <!-- МЕНЮ -->
+      <!-- МЕНЮ -->
 
-    <header>
-      <nav class="cd-main-nav-wrapper">
-        <ul class="mainnav">
-          <li class="mainnav2" style="display: inline-block; ">
-            <a href="{% url 'product' %}"> <img src=" {% static 'img/logo.png' %}" height="65"></a>
-          </li>
-          <li class="mainnav1" style="display: inline-block; ">
-            <form action="{% url 'product' %}" class="search">
-              <input type="search" name="search" placeholder="Пошук" class="input" />
-              <input type="submit" name="" class="submit" />
-            </form>
-          </li>
-        </ul>
+      <header>
+        <nav class="cd-main-nav-wrapper">
+          <ul class="mainnav">
+            <li class="mainnav2" style="display: inline-block; ">
+              <a href="{% url 'product' %}"> <img src=" {% static 'img/logo.png' %}" height="65"></a>
+            </li>
+            <li class="mainnav1" style="display: inline-block; ">
+              <form action="{% url 'product' %}" class="search">
+                <input type="search" name="search" placeholder="Пошук" class="input" />
+                <input type="submit" name="" class="submit" />
+              </form>
+            </li>
+          </ul>
 
-        <ul class="cd-main-nav">
+          <ul class="cd-main-nav">
 
-          <li><a href="{% url 'product' %}">Головна</a></li>
-          <li><a href="{% url 'about' %}">Про аукціон</a></li>
-          
+            <li><a href="{% url 'product' %}">Головна</a></li>
+            <li><a href="{% url 'about' %}">Про аукціон</a></li>
 
-          <li>
-            <a href="#0" class="cd-subnav-trigger"><span>Профіль</span></a>
-            <ul>
-              <li class="go-back"><a href="#0">Меню</a></li>
-              <li><a href="{% url 'login' %}"> Авторизація</a></li>
-              <li><a href="{% url 'signup' %}"> Реєстрація</a></li>
-              
-              <li><a href="#0" class="placeholder">Placeholder</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <a href="#0" class="cd-nav-trigger"><span></span></a>
-    </header>
-    <!-- //МЕНЮ -->
-    
-    <main class="cd-main-content">
-      <div class="caption"><a style="color: rgb(95, 95, 95)" href="{% url 'login' %}"> Авторизуйся</a> і торгуй! :)</div>
-      <!-- CATEGORY -->
-      <ol class="filters">
-        <ul>
-          <label>
-            <li><a href="{% url 'product' %}"> Всі товари</a></li>
-          </label>
-          {% for c in menu %}
-          <label>
-            <li><a href="{% url 'product' %}{{c.url}}"> {{c.category_name}}</a></li>
-          </label>
-          {% endfor %}
-        </ul>
-      </ol>
-      <!-- //CATEGORY-->
 
-      <div class="row row-offcanvas row-offcanvas-right">
+            <li>
+              <a href="#0" class="cd-subnav-trigger"><span>Профіль</span></a>
+              <ul>
+                <li class="go-back"><a href="#0">Меню</a></li>
+                <li><a href="{% url 'login' %}"> Авторизація</a></li>
+                <li><a href="{% url 'signup' %}"> Реєстрація</a></li>
 
-        {% for prod in product_list %}
+                <li><a href="#0" class="placeholder">Placeholder</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <a href="#0" class="cd-nav-trigger"><span></span></a>
+      </header>
+      <!-- //МЕНЮ -->
 
-        <div class="cardd">
-          <div class="card"><img class="card-img-top" src="{{ prod.image.url }}" alt="Card image">
-            <div class="card-body">
-              <h5 class="card-title"> {{ prod.itemname }} </h5>
-              <p class="card-text">Початкова ставка: {{ prod.initialbid }} UAH</p>
-              <!-- <a href="{% url 'product' %}{{ prod.id }}" class="baton">Відкрити</a> -->
+      <main class="cd-main-content">
+        <div class="caption"><a style="color: rgb(95, 95, 95)" href="{% url 'login' %}"> Авторизуйся</a> і торгуй! :)
+        </div>
+        <!-- CATEGORY -->
+        <ol class="filters">
+          <ul>
+            <label>
+              <li><a href="{% url 'product' %}"> Всі товари</a></li>
+            </label>
+            {% for c in menu %}
+            <label>
+              <li><a href="{% url 'product' %}{{c.url}}"> {{c.category_name}}</a></li>
+            </label>
+            {% endfor %}
+          </ul>
+        </ol>
+        <!-- //CATEGORY-->
+
+        <div class="row row-offcanvas row-offcanvas-right">
+
+          {% for prod in product_list %}
+
+          <div class="cardd">
+            <div class="card"><img class="card-img-top" src="{{ prod.image.url }}" alt="Card image">
+              <div class="card-body">
+                <h5 class="card-title"> {{ prod.itemname }} </h5>
+                <p class="card-text">Початкова ставка: {{ prod.initialbid }} UAH</p>
+                <!-- <a href="{% url 'product' %}{{ prod.id }}" class="baton">Відкрити</a> -->
+              </div>
             </div>
           </div>
-        </div>
-
-        {% endfor %}
-
-      </div>
-      <!-- Пагінація -->
-      {% if is_paginated %}
-
-      <nav aria-label="...">
-        <ul class="pagination justify-content-center">
-
-          <li class="page-item {% if not prev_url %} disabled {% endif %}">
-            <a class="page-link" href="{{ prev_url }}" tabindex="-1">Назад</a>
-          </li>
-
-          {% for prod in product_list.paginator.page_range %}
-
-          {% if product_list.number == prod %}
-          <li class="page-item active">
-            <a class="page-link" href="?page={{ prod }}"> {{ prod }}
-              <span class="sr-only"> (current) </span>
-            </a>
-          </li>
-
-          {% elif prod > product_list.number|add:-3 and prod < product_list.number|add:3 %}
-          <li class="page-item">
-            <a class="page-link" href="?page={{ prod }}"> {{ prod }} </a>
-          </li>
-          {% endif %}
 
           {% endfor %}
 
-          <li class="page-item {% if not next_url %} disabled {% endif %}">
-            <a class="page-link" href="{{ next_url }}" tabindex="-1">Вперед</a>
-          </li>
-        </ul>
-      </nav>
+        </div>
+        <!-- Пагінація -->
+        {% if is_paginated %}
 
-      {% endif %}
+        <nav aria-label="...">
+          <ul class="pagination justify-content-center">
 
-      <!-- Пагінація -->
+            <li class="page-item {% if not prev_url %} disabled {% endif %}">
+              <a class="page-link" href="{{ prev_url }}" tabindex="-1">Назад</a>
+            </li>
+
+            {% for prod in product_list.paginator.page_range %}
+
+            {% if product_list.number == prod %}
+            <li class="page-item active">
+              <a class="page-link" href="?page={{ prod }}"> {{ prod }}
+                <span class="sr-only"> (current) </span>
+              </a>
+            </li>
+
+            {% elif prod > product_list.number|add:-3 and prod < product_list.number|add:3 %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ prod }}"> {{ prod }} </a>
+            </li>
+            {% endif %}
+
+            {% endfor %}
+
+            <li class="page-item {% if not next_url %} disabled {% endif %}">
+              <a class="page-link" href="{{ next_url }}" tabindex="-1">Вперед</a>
+            </li>
+          </ul>
+        </nav>
+
+        {% endif %}
+
+        <!-- Пагінація -->
 
 
-      {% endif %}
-      <!-- ...Якщо не авторизований -->
+        {% endif %}
+        <!-- ...Якщо не авторизований -->
 
-      <div class="push"></div>
+        <div class="push"></div>
   </div>
   </main>
 
@@ -289,18 +286,16 @@
         <p class="rights-text">© 2020
           Online System Auction</p>
       </div>
-
       <div class="right-col">
         <a href="#"> <img src=" {% static 'img/OnlineAuction.svg' %}" alt="logo" width="320" height="200"></a>
       </div>
     </div>
-
-
   </footer>
 
   <script src="{% static 'js/modernizr.js' %}"></script> <!-- Modernizr -->
   <script src="{% static 'js/jquery-2.1.1.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script> <!-- Resource jQuery -->
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 </body>

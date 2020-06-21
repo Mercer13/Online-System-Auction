@@ -19,7 +19,7 @@ def validate_even(value):
         raise ValidationError('Занадто велика ціна!')    
 
 class Category(models.Model):
-    category_name = models.CharField("Категория", max_length=150)
+    category_name = models.CharField("Категорія", max_length=150)
     url = models.SlugField(max_length=160, unique=True)
     # object = models.manager()
 
@@ -27,8 +27,8 @@ class Category(models.Model):
         return self.category_name
 
     class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
+        verbose_name = "Категорія"
+        verbose_name_plural = "Категорії"
 
 class Product(models.Model):
     itemname = models.CharField(verbose_name="Назва товару: ", null=False,max_length=200)
@@ -40,7 +40,7 @@ class Product(models.Model):
     buyer = models.CharField(blank=True,null=True,max_length=200)
     bid = models.IntegerField(default=0,blank=True)
     createddate = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(Category, verbose_name="Категория", on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, verbose_name="Категорія", on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.itemname    
