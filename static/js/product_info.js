@@ -121,7 +121,6 @@ function printResult() {
         }
     }
     else {
-
         $('#contents').html('');
         $('#imageblock').html('');
         $('#final').hide();
