@@ -1,0 +1,91 @@
+* {
+	box-sizing: border-box;
+}
+html {
+    height: 100%;
+    margin: 0;
+}
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eeeeee;
+}
+
+.wrapper {
+    min-height: 75%;
+    margin-bottom: 0px;
+}
+
+
+.auth1{
+	color: black;
+}
+
+.auth1:hover{
+	color: #8ab7da;
+}
+
+/* Логотип */
+
+.logotip{
+    width: 250px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+/* ... Логотип */
+
+.caption {
+    background: #fc5656; 
+    padding: 10px;
+    box-shadow: 0 2px  4px 0 rgba(0,0,0,.3);
+    color: white;
+   
+    font-style: normal;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 0;
+
+  }
+
+  .caption1 {
+    background: #dbdbdb9c; 
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    
+    font-style: normal;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 0;
+
+  }
+
+   .about_auction b{
+      font-weight: 550;
+      
+  }
+  .about_auction h1{
+    font-size: 24px;
+    padding-bottom: 10px;
+  }
+
+  .about_auction p{
+    font-size: 17px;
+  }
+
+  .container{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .about_auction ul{
+      padding-left: 50px;
+  }
+
+  .about_auction li{
+    padding-bottom: 10px;
+}

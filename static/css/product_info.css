@@ -1,0 +1,195 @@
+html {
+    height: 100%;
+    margin: 0;
+}
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eeeeee;
+}
+
+.wrapper {
+    min-height: 75%;
+    margin-bottom: 0px;
+}
+
+/* Логотип */
+
+.logotip{
+    width: 250px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+/* ... Логотип */
+.baton:before {
+  content: '';
+  /* -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -moz-backface-visibility: hidden; */
+  backface-visibility: hidden;
+  overflow: hidden;
+  /* -webkit-transform: skewX(16deg);
+  -ms-transform: skewX(16deg); */
+  transform: skewX(16deg);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: #e52d87;
+  /* -webkit-transition: all .5s cubic-bezier(.165,.84,.44,1);
+  -ms-transition: all .5s cubic-bezier(.165,.84,.44,1); */
+  transition: all .5s cubic-bezier(.165,.84,.44,1);
+  
+  outline: none;
+}
+
+.baton {
+  position: relative;
+  z-index: 1;
+  
+  height: 40px;
+  padding: 0 40px;
+  margin-bottom: 20px;
+  display: inline-block;
+  zoom: 1;
+  text-decoration: none!important;
+  color: #fff;
+  text-transform: uppercase!important;
+  text-align: center;
+  font-size: 16px;
+  /* line-height: 54px; */
+  border: none;
+  margin-left: 10px;
+  background: 0 0;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  outline: none;
+}
+
+.baton:hover{
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  outline: none;
+}
+
+/* .baton{
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    bottom: 0;
+    width: 350px;
+    font-size: 16px;
+    color: #f1f1f1;
+    background: #00aeff;
+    border: none;
+    font-weight: 700;
+    outline: none;
+    border-radius: 30px;
+    bottom: 13px;
+    cursor: pointer;
+    transition: opacity .3s linear;
+  }
+  
+  .baton:hover{
+    text-decoration: none;
+    opacity: .7;
+    color: #f1f1f1;
+    background: #00aeff;
+  } */
+
+  .caption {
+    background: #d4d4d4; 
+    padding: 10px;
+    box-shadow: 0 2px  4px 0 rgba(0,0,0,.3);
+    color: rgb(255, 255, 255);
+    font-family: "Roboto Slab",serif;
+    font-style: normal;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .content-info h1{
+    font-size: 35px;
+    padding-bottom: 25px;
+    padding-top: 10px;
+  }
+
+  .content-info div{
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
+
+  .buyerControls form{
+    width: 500px;
+ 
+  }
+  
+
+.modal.show .modal-dialog {
+  position: relative;
+  -webkit-transform: translate(0,0);
+  transform: translate(0,0);
+}
+
+.modal-content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+  outline: 0;
+  box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.438);
+}
+
+.modal-content button{
+  font-size: 18px;
+}
+
+.modal-backdrop {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+
+#bidInput{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    padding-left: 25px;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+
+}

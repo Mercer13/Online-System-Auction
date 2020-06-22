@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initital-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Про аукціон | OSA</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/scroll.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/navigation.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}"> <!-- nav -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- nav -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- МЕНЮ -->
+
+    <header>
+      <nav class="cd-main-nav-wrapper">
+        <ul class="mainnav">
+          <li class="mainnav2" style="display: inline-block; ">
+            <a href="{% url 'product' %}"> <img src=" {% static 'img/logo.png' %}" height="65"></a>
+          </li>
+          <li class="mainnav1" style="display: inline-block; ">
+            <form action="{% url 'product' %}" class="search">
+              <input type="search" name="search" placeholder="Пошук" class="input" />
+              <input type="submit" name="" class="submit" />
+            </form>
+          </li>
+        </ul>
+
+        <ul class="cd-main-nav">
+          <li><a href="{% url 'product' %}">Головна</a></li>
+        </ul>
+      </nav>
+      <a href="#0" class="cd-nav-trigger"><span></span></a>
+    </header>
+    <!-- //МЕНЮ -->
+    <main class="cd-main-content">
+    <div class="caption">Онлайн система і цифровий аукціон</div>
+    
+    <div class="about_auction">
+        <div class="container">
+            <h1 style="text-align: center; padding-top: 20px;"><b>Перше знаймоство</b></h1>
+
+            <p style="text-align: center;">
+              Наш сайт - функціональний український інтернет-аукціон. Маркетплейс, на якому будь-який зареєстрований користувач має можливість здійснювати покупку і продаж товарів, за допомогою аукціонних торгів. Проект постійно розвивається і вдосконалюється, забезпечуючи розвинений функціонал і безпеку користувачів.
+            </p>
+
+            <h1 style="text-align: center; padding-top: 20px;"><b>Як купити на сайті?</b></h1>
+            <ul>
+              <li><b>Перший крок: </b>пройдіть реєстрацію на сайті</li>
+              <li><b>Другий крок: </b>Перейдіть на сторінку лота що цікавить.</li>
+              <li><b>Третій крок: </b>Ознайомтесь із лотом.</li>
+              <li><b>Четвертий крок: </b>введіть величину ставки.</li>
+              <li><b>П'ятий крок: </b>Підтвердіть ставку.</li>
+              <li><b>Шостий крок: </b>Після перемоги в Аукціоні на вашу поштову адресу буде відправлено лист з контактною інформацією продавця.</li>
+            </ul>
+            <h1 style="text-align: center; padding-top: 20px;"><b>Як працює наш сайт?</b></h1>
+            <p style="text-align: center;">
+              Інтернет-аукціон працює 24 години на добу, 7 днів на тиждень.
+               Продавці виставляють на продаж лоти, а покупці роблять ставки і купують їх за допомогою аукціонних торгів.
+               Якщо ми вас зацікавили просимо на наш сайт. )
+
+            </p>
+            <p style="text-align: center;"> 
+              
+              <a href="{% url 'product' %}"> Летс гоу)</a>
+            </p>
+        </div>
+    </div> 
+
+
+  </div>
+
+    </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="left-col">
+        <img src="logo.png" alt="" class="logo">
+        <div class="social-media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="rights-text">© 2020
+          Online System Auction</p>
+      </div>
+
+      <div class="right-col">
+        <a href="#"> <img src=" {% static 'img/OnlineAuction.svg' %}" alt="logo" width="320" height="200"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

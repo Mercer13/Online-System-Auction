@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import django_filters.rest_framework
-from .models import Product
+from .models import Product, Category
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, get_list_or_404, reverse
@@ -13,13 +13,77 @@ from productpage.serializer import UserSerializer, GroupSerializer,ProductSerial
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_protect
 from .forms import DocumentForm
+
+from django.core.paginator import Paginator
+
 #from django.contrib.comments import Comment
 
 def productadd(request):
     return render(request,"productproductadd/productadd.html")
 
+def about(request):
+    return render(request,"productpage/about.html")
+
 def products(request):
-    return render(request,"productpage/product_page.html")
+    search_query = request.GET.get('search','')
+    if search_query:
+        product_all = Product.objects.filter(itemname__icontains=search_query)
+    else:
+        product_all = Product.objects.filter(status=0)
+        
+    menu_all = Category.objects.all()
+    paginator = Paginator(product_all, 6)
+    page_number = request.GET.get("page", 1)
+    page = paginator.get_page(page_number)
+
+    is_paginated = page.has_other_pages()
+    if page.has_previous():
+        prev_url = '?page={}'.format(page.previous_page_number())
+    else:
+        prev_url = ''
+
+    if page.has_next():
+        next_url = '?page={}'.format(page.next_page_number())
+    else:
+        next_url = ''
+
+    context = {
+        'product_list': page,
+        'is_paginated': is_paginated,
+        'prev_url': prev_url,
+        'next_url': next_url,
+        'menu': menu_all
+    }
+    return render(request,"productpage/product_page.html", context=context)
+
+def productcategory(request, url):
+    product_all = Product.objects.filter(category__url = url, status = 0)
+    menu_all = Category.objects.all()
+
+    paginator = Paginator(product_all, 6)
+    page_number = request.GET.get("page", 1)
+    page = paginator.get_page(page_number)
+
+    is_paginated = page.has_other_pages()
+    if page.has_previous():
+        prev_url = '?page={}'.format(page.previous_page_number())
+    else:
+        prev_url = ''
+
+    if page.has_next():
+        next_url = '?page={}'.format(page.next_page_number())
+    else:
+        next_url = ''
+
+    context = {
+        'product_list': page,
+        'is_paginated': is_paginated,
+        'prev_url': prev_url,
+        'next_url': next_url,
+        'menu': menu_all
+    }
+
+    return render(request, "productpage/product_page.html", context=context)
 
 def getmyproduct(request):
     return render(request,"productpage/myproducts.html")
@@ -29,6 +93,7 @@ def productssold(request):
     
 def productbought(request):
     return render(request,"productpage/productbought.html")
+    
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -37,13 +102,11 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
 @cache_page(60 * 15)
-@csrf_protect    
+@csrf_protect   
+
 def getproduct(request,id):
     id=int(id)
-    context={
-        'id':id
-    }
-    return render(request,"productpage/productinfo.html",context)
+    return render(request,"productpage/productinfo.html", context ={'id':id} )
     
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
